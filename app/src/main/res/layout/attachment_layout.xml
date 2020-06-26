@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/circularbordersolid"
+    android:orientation="vertical"
+    android:padding="8dp">
+
+    <ImageView
+        android:id="@+id/hide"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="right"
+        android:foreground="?android:attr/selectableItemBackground"
+        android:padding="8dp"
+        android:src="@drawable/ic_less" />
+
+    <Button
+        android:id="@+id/sendPictureButton"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:background="@drawable/bg_button"
+        android:text="@string/send_picture"
+        android:backgroundTint="@color/percianBlue"
+        android:textAllCaps="true"
+        android:textColor="@color/white"
+        android:textSize="18dp" />
+
+    <Button
+        android:id="@+id/sendFileButton"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="4dp"
+        android:background="@drawable/bg_button"
+        android:text="@string/send_file"
+        android:backgroundTint="@color/percianBlue"
+        android:textAllCaps="true"
+        android:textColor="@color/white"
+        android:textSize="18dp" />
+
+
+</LinearLayout>

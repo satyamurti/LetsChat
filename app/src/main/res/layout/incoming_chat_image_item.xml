@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="message"
+            type="com.mrspd.letschat.models.ImageMessage" />
+
+        <variable
+            name="clickListener"
+            type="com.mrspd.letschat.fragments.one_to_one_chat.MessageClickListener" />
+
+        <variable
+            name="position"
+            type="Integer" />
+    </data>
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="100dp">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:background="@drawable/incoming_bubble"
+            android:onClick="@{() -> clickListener.onMessageClick(position,message)}"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+
+            <ImageView
+                android:id="@+id/progressbar"
+                android:layout_width="250dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginEnd="4dp"
+                android:gravity="start"
+                android:paddingLeft="8dp"
+                android:paddingTop="4dp"
+                android:adjustViewBounds="true"
+                android:paddingRight="8dp"
+                android:paddingBottom="10dp"
+                android:textColor="@color/primaryTextColor"
+                android:textSize="14sp"
+                app:layout_constraintBottom_toTopOf="@+id/dateTextView"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:setChatImage="@{message.uri}"
+                tools:src="@drawable/anonymous_profile" />
+
+
+            <TextView
+                android:id="@+id/dateTextView"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginBottom="4dp"
+                android:gravity="end"
+                app:formatDate="@{message.created_at}"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                tools:text="14:16" />
+
+            <TextView
+                android:layout_width="20dp"
+                android:layout_height="0dp"
+                app:layout_constraintEnd_toStartOf="@+id/dateTextView"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/dateTextView" />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

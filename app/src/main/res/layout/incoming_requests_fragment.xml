@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+    </data>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/secondaryLightColor"
+        tools:context=".ui.incoming_requests.IncomingRequestsFragment">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/receivedRequestsRecycler"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            tools:listitem="@layout/received_request_item" />
+
+
+        <include
+            android:id="@+id/no_incoming_requests_layout"
+            layout="@layout/no_incoming_requests"
+            android:visibility="gone" />
+
+
+        <ImageView
+            android:id="@+id/loadingRequestsImageView"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_gravity="center"
+            android:src="@drawable/loading_animation" />
+    </FrameLayout>
+</layout>

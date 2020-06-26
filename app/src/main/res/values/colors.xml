@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#FFFFFF</color>
+    <color name="colorPrimaryDark">#092E40</color>
+    <color name="colorAccent">#000</color>
+        <color name="percianBlue">#0C2F3E</color>
+
+    <!--  Text colour     -->
+
+    <color name="background">#EDEDF1</color>
+
+    <color name="secondaryLightColor">#EDEDF1</color>
+    <!--  button colour     -->
+
+    <color name="primaryColor">#0C2F3E</color>
+    <color name="primaryTextColor">#000000</color>
+    <color name="secondaryTextColor">#000000</color>
+    <color name="red">#EE4B4B</color>
+    <color name="white">#FFFFFF</color>
+    <color name="blue">#3F51B5</color>
+    <color name="grey">#ACACAC</color>
+    <color name="green">#61B163</color>
+    <!--  Actionbar colour     -->
+
+
+    <!--  color_cartimg_background     -->
+    <color name="dark">#31456a</color>
+    <color name="dodgerblue">#6DC9F1</color>
+
+    <!--  menufount colour     -->
+
+
+</resources>

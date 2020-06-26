@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/chatFragment"
+        android:icon="@drawable/chatsicon"
+        android:title="Chats" />
+    <item
+        android:id="@+id/groupFragment"
+        android:icon="@drawable/groupsicon"
+        android:title="Groups" />
+    <item
+        android:id="@+id/ARselfieFragment"
+        android:icon="@drawable/arselfieicon"
+        android:title="ARselfie" />
+    <item
+        android:id="@+id/searchFragment"
+        android:icon="@drawable/searchicon"
+        android:title="Search" />
+    <item
+        android:id="@+id/profileFragment"
+        android:icon="@drawable/profileicon"
+        android:title="Profile" />
+
+</menu>

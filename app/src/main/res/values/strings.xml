@@ -1,0 +1,42 @@
+<resources>
+    <string name="app_name">LetsChat!!</string>
+    <string name="wrong_email_format">Wrong email format</string>
+    <string name="password_size">Password must be at least 6 characters</string>
+    <string name="search">Search</string>
+    <string name="about_me">Bio</string>
+    <string name="edit">Edit</string>
+    <string name="friends">Friends</string>
+    <string name="select_profile_picture">Select  picture</string>
+    <string name="take_new_profile_picture">Take new  picture</string>
+    <string name="uploading">Uploading...</string>
+    <string name="type_something_to_let_your_friends_know_you_better">Type something to let your friends know you better</string>
+    <string name="submit">Submit</string>
+    <string name="cancel_request">Cancel request</string>
+    <string name="friend_request_not_sent">Connect</string>
+    <string name="confirm">Confirm</string>
+    <string name="no_incoming_requests">No incoming requests</string>
+    <string name="no_friends_yet">No friends yet</string>
+    <string name="find_friends">Find friends</string>
+    <string name="no_one_to_chat_with_yet_add_more_friend_to_get_going">No chat history yet!! Search friends and get going!!</string>
+    <string name="type_a_message">Type a message</string>
+    <string name="empty_message">Can\'t send empty message</string>
+
+
+
+
+    <string name="you">You: %1$s</string>
+    <string name="other">%1$s: %2$s</string>
+    <string name="other_image">%1$s sent an image</string>
+    <string name="other_file">%1$s sent a file</string>
+    <string name="no_users_to_add_yet">No users to add yet.</string>
+    <string name="you_sent_image">You sent an image</string>
+    <string name="send_file">Send file</string>
+    <string name="send_picture">Send picture</string>
+    <string name="you_sent_file">you sent a file</string>
+    <string name="you_sent_record">you sent a voice record</string>
+    <string name="other_record">%1$s sent a voice record</string>
+    <string name="delete_from_friends">Remove from friends</string>
+    <string name="no_friends">User has no friends yet</string>
+
+
+</resources>

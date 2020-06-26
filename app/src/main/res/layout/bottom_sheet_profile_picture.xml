@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/background"
+    android:orientation="vertical"
+    android:padding="8dp">
+
+
+    <ImageView
+        android:id="@+id/hide"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:foreground="?android:attr/selectableItemBackground"
+        android:padding="8dp"
+        android:layout_gravity="right"
+        android:src="@drawable/ic_less" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/galleryButton"
+
+        android:layout_height="wrap_content"
+        android:text="@string/select_profile_picture"
+        android:textAllCaps="true"
+        app:icon="@drawable/ic_collections_black_24dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:background="@drawable/bg_button"
+        android:layout_width="300dp"
+        android:layout_gravity="center"
+        android:textColor="@color/percianBlue"
+        android:textSize="18dp"
+        />
+
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/cameraButton"
+        android:layout_width="300dp"
+        android:layout_gravity="center"
+        android:textColor="@color/percianBlue"
+        android:textSize="18dp"
+        android:background="@drawable/bg_button"
+        android:layout_marginTop="4dp" android:layout_height="wrap_content"
+        android:text="@string/take_new_profile_picture"
+        android:textAllCaps="true"
+        app:icon="@drawable/ic_camera_alt_black_24dp" />
+
+
+</LinearLayout>

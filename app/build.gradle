@@ -1,0 +1,122 @@
+apply plugin: 'com.android.application'
+
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-kapt'
+
+apply plugin: 'kotlin-android-extensions'
+
+apply plugin: "androidx.navigation.safeargs"
+apply plugin: 'com.google.gms.google-services'
+
+android {
+
+    buildTypes {
+        debug {
+            ext.enableCrashlytics = false
+            crunchPngs false
+        }
+    }
+
+    buildFeatures{
+        dataBinding = true
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    kotlinOptions {
+        jvmTarget = JavaVersion.VERSION_1_8.toString()
+    }
+
+    compileSdkVersion 29
+    buildToolsVersion "29.0.2"
+    defaultConfig {
+        applicationId "com.mrspd.letschat"
+        minSdkVersion 21
+        targetSdkVersion 29
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    dataBinding {
+        enabled = true
+    }
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+    implementation 'androidx.appcompat:appcompat:1.1.0'
+    implementation 'androidx.core:core-ktx:1.3.0'
+    implementation 'androidx.constraintlayout:constraintlayout:1.1.3'
+    implementation 'com.google.firebase:firebase-auth:19.3.1'
+    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
+    implementation 'androidx.lifecycle:lifecycle-extensions:2.2.0'
+    implementation 'androidx.lifecycle:lifecycle-viewmodel-ktx:2.2.0'
+    implementation 'com.google.android.material:material:1.1.0'
+    implementation 'androidx.annotation:annotation:1.1.0'
+    implementation 'com.google.firebase:firebase-firestore:21.4.3'
+    implementation 'com.google.firebase:firebase-storage:19.1.1'
+    testImplementation 'junit:junit:4.13'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.1'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
+
+
+    def nav_version = "2.1.0"
+    // Kotlin
+    implementation "androidx.navigation:navigation-fragment-ktx:$nav_version"
+    implementation "androidx.navigation:navigation-ui-ktx:$nav_version"
+
+
+    /*// Coroutines
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core:$version_kotlin_coroutines"
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:$version_kotlin_coroutines"*/
+
+
+    // Glide
+    implementation "com.github.bumptech.glide:glide:4.11.0"
+
+
+    //needed for databinding
+    kapt "com.android.databinding:compiler:3.1.4"
+
+    //lottie animation
+    implementation 'com.airbnb.android:lottie:3.4.0'
+
+    //facebook login
+    implementation 'com.facebook.android:facebook-android-sdk:5.15.3'
+
+    //event bus
+    implementation 'org.greenrobot:eventbus:3.1.1'
+
+//circle image
+    implementation 'com.mikhaellopez:circularimageview:4.1.1'
+
+//json
+    implementation 'com.google.code.gson:gson:2.8.6'
+
+    //dexter
+    implementation 'com.karumi:dexter:6.0.1'
+
+    //image zoom
+    implementation 'com.github.stfalcon:stfalcon-imageviewer:1.0.0'
+
+
+
+    //FCM
+    implementation 'com.google.firebase:firebase-messaging:20.2.0'
+    // Apply the Crashlytics Gradle plugin
+    apply plugin: 'com.google.firebase.crashlytics'
+    // Recommended: Add the Firebase SDK for Google Analytics.
+    implementation 'com.google.firebase:firebase-analytics:17.4.3'
+    // Add the Firebase SDK for Crashlytics.
+    implementation 'com.google.firebase:firebase-crashlytics:17.0.1'
+}

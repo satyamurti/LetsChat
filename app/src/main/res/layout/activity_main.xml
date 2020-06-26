@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+    </data>
+
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
+        android:id="@+id/coordinator"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/secondaryLightColor"
+            tools:context=".ui.main_activity.MainActivity">
+
+
+            <androidx.appcompat.widget.Toolbar
+                android:id="@+id/toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"
+                android:background="@color/percianBlue"
+                android:elevation="4dp"
+                app:titleTextColor="@color/white"
+                app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
+                app:subtitleTextColor="@color/white"
+                android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar" />
+
+            <fragment
+                android:layout_marginTop="?attr/actionBarSize"
+                android:id="@+id/nav_host_fragment"
+                android:name ="androidx.navigation.fragment.NavHostFragment"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                app:defaultNavHost="true"
+                app:navGraph="@navigation/nav_graph" />
+
+        </FrameLayout>
+        <com.google.android.material.bottomnavigation.BottomNavigationView
+            android:id="@+id/navView"
+            android:layout_width="match_parent"
+            android:layout_height="57dp"
+            android:background="@color/percianBlue"
+            android:fitsSystemWindows="true"
+            app:itemIconTint="@color/white"
+            android:layout_gravity="bottom"
+            app:menu="@menu/home_menu" />
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+</layout>

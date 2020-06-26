@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+    </data>
+
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
+        android:id="@+id/coordinator"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/chatbackground"
+                tools:context=".ui.chat.ChatFragment">
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/recycler"
+                    android:layout_width="match_parent"
+                    android:layout_marginBottom="8dp"
+                    android:layout_height="0dp"
+                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                    app:layout_constraintBottom_toTopOf="@id/messageLayout"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:listitem="@layout/sent_message_item" />
+
+
+                <!--  android:backgroundTintMode="@color/white"-->
+
+
+                <com.google.android.material.floatingactionbutton.FloatingActionButton
+                    android:id="@+id/recordFab"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="8dp"
+                    android:layout_marginBottom="16dp"
+                    android:background="@color/white"
+                    android:backgroundTint="@color/white"
+                    android:src="@drawable/mic"
+                    app:backgroundTint="#FFFFFF"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent" />
+
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/messageLayout"
+                    android:layout_width="0dp"
+                    android:layout_height="56dp"
+                    android:layout_margin="8dp"
+                    android:background="@drawable/circularbordersolid"
+                    app:layout_constraintBottom_toBottomOf="@+id/recordFab"
+                    app:layout_constraintEnd_toStartOf="@+id/recordFab"
+                    app:layout_constraintHorizontal_bias="1.0"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="@+id/recordFab">
+
+
+                    <ImageView
+                        android:id="@+id/attachmentImageView"
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
+                        android:layout_marginEnd="4dp"
+                        android:padding="12dp"
+                        android:src="@drawable/attach"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+
+                        app:layout_constraintTop_toTopOf="parent"
+                        android:contentDescription="attachments" />
+
+                    <EditText
+                        android:id="@+id/messageEditText"
+                        android:layout_width="0dp"
+                        android:layout_height="56dp"
+                        android:background="@drawable/circularbordersolid"
+                        android:hint="@string/type_a_message"
+                        android:imeOptions="actionSend"
+                        android:inputType="text"
+                        android:paddingStart="16sp"
+                        android:textSize="16sp"
+                        app:errorEnabled="true"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toStartOf="@+id/attachmentImageView"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+            <ImageView
+                android:id="@+id/fullSizeImageView"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/secondaryTextColor"
+                android:visibility="gone" />
+
+        </FrameLayout>
+
+
+        <!--persistant bottom navigation-->
+        <androidx.core.widget.NestedScrollView
+            android:id="@+id/bottom_sheet"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:behavior_hideable="true"
+            app:behavior_peekHeight="0dp"
+            app:layout_behavior="com.google.android.material.bottomsheet.BottomSheetBehavior">
+
+
+            <!--place_info_card-->
+            <include
+                android:id="@+id/attachment_layout"
+                layout="@layout/attachment_layout" />
+
+
+        </androidx.core.widget.NestedScrollView>
+
+
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+</layout>

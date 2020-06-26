@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
+        android:id="@+id/action_add_friend"
+        android:title="Add Freinds" />
+
+
+    <item
+        android:id="@+id/action_edit_profile"
+        android:icon="@drawable/ic_edit_black_24dp"
+        android:title="Your Profile" />
+
+
+    <item
+        android:id="@+id/action_logout"
+        android:title="Logout" />
+
+
+    <item
+        android:id="@+id/action_search"
+        android:title="Search"
+        app:actionViewClass="androidx.appcompat.widget.SearchView"
+        app:showAsAction="ifRoom|collapseActionView" />
+
+
+    <item
+        android:id="@+id/action_incoming_requests"
+        android:title="Your Requests"
+        app:actionLayout="@layout/notification_badge_layout"
+        app:showAsAction="ifRoom" />
+</menu>
