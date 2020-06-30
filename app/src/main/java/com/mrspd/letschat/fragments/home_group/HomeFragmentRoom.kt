@@ -33,7 +33,7 @@ class HomeFragmentRoom : Fragment() {
     private val adapter: ChatPreviewAdapterRoom by lazy {
         ChatPreviewAdapterRoom(ClickListener { groupName ->
             //navigate to chat with selected user on chat outer item click
-            val clickedGroup = gson.toJson(groupName.name)
+            val clickedGroup = gson.toJson(groupName)
             findNavController().navigate(
                 R.id.action_homeFragmentRoom_to_roomChatFragment, bundleOf(
                     ClICKED_GROUP to clickedGroup

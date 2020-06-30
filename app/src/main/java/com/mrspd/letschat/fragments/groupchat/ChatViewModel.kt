@@ -1,9 +1,12 @@
 package com.mrspd.letschat.fragments.groupchat
 
 import android.net.Uri
+import android.util.Log.d
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
+import com.google.firebase.firestore.DocumentSnapshot
 import com.google.firebase.firestore.EventListener
 import com.google.firebase.firestore.FieldValue
 import com.google.firebase.firestore.SetOptions
@@ -13,6 +16,7 @@ import com.google.gson.reflect.TypeToken
 import com.mrspd.letschat.models.*
 import com.mrspd.letschat.util.FirestoreUtil
 import com.mrspd.letschat.util.StorageUtil
+import kotlinx.coroutines.async
 import java.io.File
 import java.util.*
 
@@ -75,7 +79,18 @@ class ChatViewModel(val senderId: String?, val groupname: String) : ViewModel() 
 
         return messagesMutableLiveData
     }
-
+suspend fun getNumberOfGroupMembers() : Int{
+    var size = -1
+    viewModelScope.async{
+        messageCollectionReference.document(groupname).get().addOnCompleteListener {
+                documentSnapshot ->
+            val document : DocumentSnapshot? = documentSnapshot.getResult()
+            val listofchatmembers : List<String> = document?.get("chat_members_in_group") as List<String>
+            d("gghh", listofchatmembers.size.toString())
+             size = listofchatmembers.size
+        } }.join()
+    return  size
+    }
     fun sendMessage(message: Message) {
         //so we don't create multiple nodes for same chat
         messageCollectionReference.document(groupname).get()

@@ -17,10 +17,8 @@ import android.os.Environment
 import android.provider.Settings
 import android.text.Editable
 import android.text.TextWatcher
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
-import android.view.WindowManager
+import android.util.Log.d
+import android.view.*
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
@@ -52,6 +50,7 @@ import com.stfalcon.imageviewer.StfalconImageViewer
 import com.stfalcon.imageviewer.loader.ImageLoader
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.attachment_layout.view.*
+import kotlinx.android.synthetic.main.chat_fragment_rooms.*
 import org.greenrobot.eventbus.EventBus
 import org.greenrobot.eventbus.Subscribe
 import org.greenrobot.eventbus.ThreadMode
@@ -73,7 +72,7 @@ class RoomChatFragment : Fragment() {
     var isRecording = false //whether is recoding now or not
     var isRecord = true //whether it is text message or record
     private lateinit var loggedUser: User
-    private lateinit var clickedGroup: String
+    private lateinit var clickedGroup: GroupName
 
 
     private var messageList = mutableListOf<Message>()
@@ -175,7 +174,7 @@ class RoomChatFragment : Fragment() {
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
 
-
+pinbar.visibility = View.GONE
         //setup bottom sheet
         mBottomSheetBehavior = BottomSheetBehavior.from(binding.bottomSheet)
 
@@ -191,12 +190,12 @@ class RoomChatFragment : Fragment() {
         loggedUser = gson.fromJson(json, User::class.java)
 
         //get receiver data from contacts fragment(NOTE:IF NAVIGATING FROM FCM-NOTIFICATION USER ONLY HAS id,username)
-        clickedGroup = gson.fromJson(arguments?.getString(ClICKED_GROUP), String::class.java)
+       clickedGroup = gson.fromJson(arguments?.getString(ClICKED_GROUP), GroupName::class.java)
 
-        activity?.title = clickedGroup
+        activity?.title = clickedGroup.name
 
         //user view model factory to pass ids on creation of view model
-        viewModeldFactory = ChatViewModelFactory(loggedUser.uid, clickedGroup)
+        viewModeldFactory = ChatViewModelFactory(loggedUser.uid, clickedGroup.name!!)
         viewModel =
             ViewModelProviders.of(this, viewModeldFactory).get(ChatViewModel::class.java)
 
@@ -257,7 +256,7 @@ class RoomChatFragment : Fragment() {
                         AuthUtil.getAuthId(),
                         Timestamp(Date()),
                         3.0,
-                        clickedGroup,
+                        clickedGroup.name,
                         loggedUser.username,
                         recordDuration.toString(),
                         recordUri.toString(),
@@ -372,7 +371,7 @@ class RoomChatFragment : Fragment() {
                 loggedUser.uid,
                 Timestamp(Date()),
                 0.0,
-                clickedGroup,
+                clickedGroup.name,
                 loggedUser.username,
                 binding.messageEditText.text.toString()
             )
@@ -399,7 +398,7 @@ class RoomChatFragment : Fragment() {
                         loggedUser.uid,
                         Timestamp(Date()),
                         2.0,
-                        clickedGroup,
+                        clickedGroup.name,
                         loggedUser.username,
                         chatFileMap["fileName"].toString(),
                         chatFileMap["downloadUri"].toString()
@@ -425,7 +424,7 @@ class RoomChatFragment : Fragment() {
                             loggedUser.uid,
                             Timestamp(Date()),
                             1.0,
-                            clickedGroup,
+                            clickedGroup.name,
                             loggedUser.username,
                             uploadedChatImageUri.toString()
                         )
@@ -458,7 +457,7 @@ class RoomChatFragment : Fragment() {
                 AuthUtil.getAuthId(),
                 null,
                 1.0,
-                clickedGroup,
+                clickedGroup.name,
                 loggedUser.username,
                 data.toString()
             )
@@ -496,7 +495,7 @@ class RoomChatFragment : Fragment() {
                 AuthUtil.getAuthId(),
                 null,
                 2.0,
-                clickedGroup,
+                clickedGroup.name,
                 loggedUser.username,
                 data.toString(),
                 data?.path.toString()
@@ -583,5 +582,65 @@ class RoomChatFragment : Fragment() {
     fun onRecycleItemEvent(event: UpdateRecycleItemEvent) {
         adapter.notifyItemChanged(event.adapterPosition)
     }
+
+
+    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
+        super.onCreateOptionsMenu(menu, inflater)
+
+
+        inflater.inflate(R.menu.chat_menu_room, menu)
+        val menuItem = menu.findItem(R.id.action_incoming_requests)
+        val actionView = menuItem?.actionView
+
+
+        actionView?.setOnClickListener { onOptionsItemSelected(menuItem) }
+
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem) = when (item.itemId) {
+
+//        R.id.action_add_friend -> {
+//            findNavController().navigate(R.id.action_homeFragment_to_findUserFragment)
+//            true
+//        }
+//        R.id.action_edit_profile -> {
+//            findNavController().navigate(R.id.action_homeFragment_to_profileFragment)
+//            true
+//        }
+//        R.id.action_logout -> {
+//            logout()
+//            true
+//        }
+        R.id.action_information -> {
+            Toast.makeText(
+                activity?.applicationContext,
+                "Number of members  are ${clickedGroup.listOfmembers?.size.toString()} ",
+                Toast.LENGTH_LONG
+            ).show()
+//            GlobalScope.launch {
+//                showsizse()
+//            }
+            true
+        }
+
+        else -> {
+            // If we got here, the user's action was not recognized.
+            // Invoke the superclass to handle it.
+            super.onOptionsItemSelected(item)
+        }
+
+    }
+
+    suspend fun showsizse() {
+        var gg = -1
+        gg = viewModel.getNumberOfGroupMembers()
+        d("gghh", "$gg ewrewr")
+        Toast.makeText(
+            activity?.applicationContext,
+            "Number of members  are ",
+            Toast.LENGTH_LONG
+        ).show()
+    }
+
 }
 
