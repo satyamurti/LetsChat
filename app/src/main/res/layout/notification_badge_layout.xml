@@ -7,10 +7,10 @@
     android:focusable="true">
 
     <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
         android:layout_gravity="center"
-        android:src="@drawable/ic_request_white_24dp" />
+        android:src="@drawable/friend_requests" />
 
     <TextView
         android:id="@+id/count_badge"

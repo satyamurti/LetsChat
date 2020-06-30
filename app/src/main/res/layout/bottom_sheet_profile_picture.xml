@@ -15,7 +15,7 @@
         android:foreground="?android:attr/selectableItemBackground"
         android:padding="8dp"
         android:layout_gravity="right"
-        android:src="@drawable/ic_less" />
+        android:src="@drawable/ic_baseline_close_24" />
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/galleryButton"
