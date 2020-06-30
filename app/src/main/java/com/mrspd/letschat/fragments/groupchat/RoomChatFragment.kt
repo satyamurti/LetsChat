@@ -41,15 +41,16 @@ import com.karumi.dexter.listener.PermissionDeniedResponse
 import com.karumi.dexter.listener.PermissionGrantedResponse
 import com.karumi.dexter.listener.single.PermissionListener
 import com.mrspd.letschat.R
-import com.mrspd.letschat.databinding.ChatFragmentBinding
+import com.mrspd.letschat.databinding.ChatFragmentRoomsBinding
 import com.mrspd.letschat.models.*
 import com.mrspd.letschat.util.AuthUtil
-import com.mrspd.letschat.util.CLICKED_USER
+import com.mrspd.letschat.util.ClICKED_GROUP
 import com.mrspd.letschat.util.LOGGED_USER
 import com.mrspd.letschat.util.eventbus_events.PermissionEvent
 import com.mrspd.letschat.util.eventbus_events.UpdateRecycleItemEvent
 import com.stfalcon.imageviewer.StfalconImageViewer
 import com.stfalcon.imageviewer.loader.ImageLoader
+import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.attachment_layout.view.*
 import org.greenrobot.eventbus.EventBus
 import org.greenrobot.eventbus.Subscribe
@@ -72,15 +73,15 @@ class RoomChatFragment : Fragment() {
     var isRecording = false //whether is recoding now or not
     var isRecord = true //whether it is text message or record
     private lateinit var loggedUser: User
-    private lateinit var clickedUser: User
+    private lateinit var clickedGroup: String
 
 
     private var messageList = mutableListOf<Message>()
-    lateinit var binding: ChatFragmentBinding
+    lateinit var binding: ChatFragmentRoomsBinding
     private val adapter: ChatAdapter by lazy {
         ChatAdapter(context, object : MessageClickListener {
             override fun onMessageClick(position: Int, message: Message) {
-          //if clicked item is image open in full screen with pinch to zoom
+                //if clicked item is image open in full screen with pinch to zoom
                 if (message.type == 1.0) {
 
                     binding.fullSizeImageView.visibility = View.VISIBLE
@@ -180,6 +181,7 @@ class RoomChatFragment : Fragment() {
 
         //set record view
         handleRecord()
+        getActivity()?.navView?.visibility = View.GONE
 
 
         //get logged user from shared preferences
@@ -189,17 +191,14 @@ class RoomChatFragment : Fragment() {
         loggedUser = gson.fromJson(json, User::class.java)
 
         //get receiver data from contacts fragment(NOTE:IF NAVIGATING FROM FCM-NOTIFICATION USER ONLY HAS id,username)
-        clickedUser = gson.fromJson(arguments?.getString(CLICKED_USER), User::class.java)
+        clickedGroup = gson.fromJson(arguments?.getString(ClICKED_GROUP), String::class.java)
 
-
-        activity?.title = "Chatting with ${clickedUser.username}"
+        activity?.title = clickedGroup
 
         //user view model factory to pass ids on creation of view model
-        if (clickedUser.uid != null) {
-            viewModeldFactory = ChatViewModelFactory(loggedUser.uid, clickedUser.uid.toString())
-            viewModel =
-                ViewModelProviders.of(this, viewModeldFactory).get(ChatViewModel::class.java)
-        }
+        viewModeldFactory = ChatViewModelFactory(loggedUser.uid, clickedGroup)
+        viewModel =
+            ViewModelProviders.of(this, viewModeldFactory).get(ChatViewModel::class.java)
 
 
         //Move layouts up when soft keyboard is shown
@@ -258,7 +257,7 @@ class RoomChatFragment : Fragment() {
                         AuthUtil.getAuthId(),
                         Timestamp(Date()),
                         3.0,
-                        clickedUser.uid,
+                        clickedGroup,
                         loggedUser.username,
                         recordDuration.toString(),
                         recordUri.toString(),
@@ -373,7 +372,7 @@ class RoomChatFragment : Fragment() {
                 loggedUser.uid,
                 Timestamp(Date()),
                 0.0,
-                clickedUser.uid,
+                clickedGroup,
                 loggedUser.username,
                 binding.messageEditText.text.toString()
             )
@@ -400,7 +399,7 @@ class RoomChatFragment : Fragment() {
                         loggedUser.uid,
                         Timestamp(Date()),
                         2.0,
-                        clickedUser.uid,
+                        clickedGroup,
                         loggedUser.username,
                         chatFileMap["fileName"].toString(),
                         chatFileMap["downloadUri"].toString()
@@ -426,7 +425,7 @@ class RoomChatFragment : Fragment() {
                             loggedUser.uid,
                             Timestamp(Date()),
                             1.0,
-                            clickedUser.uid,
+                            clickedGroup,
                             loggedUser.username,
                             uploadedChatImageUri.toString()
                         )
@@ -459,7 +458,7 @@ class RoomChatFragment : Fragment() {
                 AuthUtil.getAuthId(),
                 null,
                 1.0,
-                clickedUser.uid,
+                clickedGroup,
                 loggedUser.username,
                 data.toString()
             )
@@ -497,7 +496,7 @@ class RoomChatFragment : Fragment() {
                 AuthUtil.getAuthId(),
                 null,
                 2.0,
-                clickedUser.uid,
+                clickedGroup,
                 loggedUser.username,
                 data.toString(),
                 data?.path.toString()

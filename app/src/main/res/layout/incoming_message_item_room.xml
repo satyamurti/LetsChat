@@ -41,7 +41,7 @@
                 android:gravity="start"
                 android:lineSpacingExtra="2dp"
                 android:paddingStart="20dp"
-                android:paddingTop="4dp"
+                android:paddingTop="2dp"
                 android:paddingEnd="10dp"
                 android:paddingBottom="10dp"
                 android:text="@{message.text}"
@@ -50,8 +50,26 @@
                 app:layout_constraintBottom_toTopOf="@+id/dateTextView"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tvNameOfUser"
                 tools:text="Hi, How are you?" />
+
+            <TextView
+                android:id="@+id/tvNameOfUser"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="start"
+                android:lineSpacingExtra="2dp"
+                android:paddingStart="20dp"
+                android:paddingTop="4dp"
+                android:paddingEnd="10dp"
+                android:paddingBottom="4dp"
+                android:text="@{message.senderName}"
+                android:textColor="@color/blue"
+                android:textSize="12sp"
+                android:textAllCaps="true"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:text="Dipesh Kafle" />
 
             <TextView
                 android:id="@+id/dateTextView"

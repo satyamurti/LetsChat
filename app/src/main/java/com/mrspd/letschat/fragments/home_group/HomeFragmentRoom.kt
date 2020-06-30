@@ -17,12 +17,12 @@ import com.google.firebase.auth.FirebaseAuth
 import com.google.gson.Gson
 import com.mrspd.letschat.R
 import com.mrspd.letschat.databinding.HomeFragmentRoomBinding
-import com.mrspd.letschat.models.GroupName
 import com.mrspd.letschat.models.User
 import com.mrspd.letschat.services.MyFirebaseMessagingService
 import com.mrspd.letschat.ui.mainActivity.SharedViewModel
 import com.mrspd.letschat.util.AuthUtil
 import com.mrspd.letschat.util.CLICKED_USER
+import com.mrspd.letschat.util.ClICKED_GROUP
 import com.mrspd.letschat.util.FirestoreUtil
 
 class HomeFragmentRoom : Fragment() {
@@ -31,12 +31,12 @@ class HomeFragmentRoom : Fragment() {
     val gson = Gson()
     private lateinit var countBadgeTextView: TextView
     private val adapter: ChatPreviewAdapterRoom by lazy {
-        ChatPreviewAdapterRoom(ClickListener { chatParticipant ->
+        ChatPreviewAdapterRoom(ClickListener { groupName ->
             //navigate to chat with selected user on chat outer item click
-            val clickedUser = gson.toJson(chatParticipant.name)
+            val clickedGroup = gson.toJson(groupName.name)
             findNavController().navigate(
-                R.id.action_homeFragment_to_chatFragment, bundleOf(
-                    CLICKED_USER to clickedUser
+                R.id.action_homeFragmentRoom_to_roomChatFragment, bundleOf(
+                    ClICKED_GROUP to clickedGroup
                 )
             )
         })
@@ -55,7 +55,7 @@ class HomeFragmentRoom : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        activity?.title = "Home"
+        activity?.title = "Groups"
 
         setHasOptionsMenu(true)
         binding = DataBindingUtil.inflate(inflater, R.layout.home_fragment_room, container, false)
@@ -70,7 +70,7 @@ class HomeFragmentRoom : Fragment() {
 
         //get logged user token and add it to user document (for FCM)
         MyFirebaseMessagingService.getInstanceId()
-
+      // viewModelRoom.createRoom("TestGroup1")
 
         //theses intent extras are coming from FCM notification click so we need to move to specific chat if not null
         val senderId = activity!!.intent.getStringExtra("senderId")
@@ -99,14 +99,14 @@ class HomeFragmentRoom : Fragment() {
             prefsEditor.apply()
 
 
-            //show notification badge if there is incoming requests
-            receivedRequestsCount = loggedUser.receivedRequests?.size ?: 0
-            setupBadge(receivedRequestsCount)
+//            //show notification badge if there is incoming requests
+//            receivedRequestsCount = loggedUser.receivedRequests?.size ?: 0
+//            setupBadge(receivedRequestsCount)
 
 
             //get user chat history
             viewModelRoom.getRooms(loggedUser!!)
-                ?.observe(viewLifecycleOwner, Observer { groupList ->
+                .observe(viewLifecycleOwner, Observer { groupList ->
 
                     //Hide loading image
                     binding.loadingChatImageView.visibility = View.GONE
@@ -114,11 +114,6 @@ class HomeFragmentRoom : Fragment() {
                         //show no chat layout
                         binding.noChatLayout.visibility = View.VISIBLE
                     } else {
-
-                        //sort messages by date so newwst show on top
-//                        val sortedChatParticipantsList: List<GroupName> =
-//                            groupList.sortedWith(compareBy { it.lastMessageDate?.get("seconds") })
-//                                .reversed()
 
                         binding.noChatLayout.visibility = View.GONE
                         binding.recycler.adapter = adapter
@@ -161,16 +156,12 @@ class HomeFragmentRoom : Fragment() {
         super.onCreateOptionsMenu(menu, inflater)
 
 
-        inflater.inflate(R.menu.main_menu, menu)
+        inflater.inflate(R.menu.main_menu_room, menu)
         val menuItem = menu.findItem(R.id.action_incoming_requests)
         val actionView = menuItem?.actionView
-        countBadgeTextView = actionView?.findViewById<View>(R.id.count_badge) as TextView
-        //if fragment is coming from back stack setupBadge will be called before onCreateOptionsMenu so we have to call setupbadge again
-        setupBadge(receivedRequestsCount)
 
 
-
-        actionView.setOnClickListener { onOptionsItemSelected(menuItem) }
+        actionView?.setOnClickListener { onOptionsItemSelected(menuItem) }
 
         //do filtering when i type in search or click search
         val searchItem = menu.findItem(R.id.action_search)
@@ -196,18 +187,18 @@ class HomeFragmentRoom : Fragment() {
 
     override fun onOptionsItemSelected(item: MenuItem) = when (item.itemId) {
 
-        R.id.action_add_friend -> {
-            findNavController().navigate(R.id.action_homeFragment_to_findUserFragment)
-            true
-        }
-        R.id.action_edit_profile -> {
-            findNavController().navigate(R.id.action_homeFragment_to_profileFragment)
-            true
-        }
-        R.id.action_logout -> {
-            logout()
-            true
-        }
+//        R.id.action_add_friend -> {
+//            findNavController().navigate(R.id.action_homeFragment_to_findUserFragment)
+//            true
+//        }
+//        R.id.action_edit_profile -> {
+//            findNavController().navigate(R.id.action_homeFragment_to_profileFragment)
+//            true
+//        }
+//        R.id.action_logout -> {
+//            logout()
+//            true
+//        }
         R.id.action_incoming_requests -> {
             findNavController().navigate(R.id.action_homeFragment_to_incomingRequestsFragment)
 

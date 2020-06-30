@@ -37,6 +37,8 @@
     <string name="other_record">%1$s sent a voice record</string>
     <string name="delete_from_friends">Remove from friends</string>
     <string name="no_friends">User has no friends yet</string>
+    <string name="create_group">Create Group</string>
+    <string name="join_group_using_key">Join Group using Key</string>
 
 
 </resources>

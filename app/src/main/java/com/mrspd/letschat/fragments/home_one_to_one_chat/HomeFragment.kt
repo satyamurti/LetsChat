@@ -56,7 +56,7 @@ class HomeFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        activity?.title = "Home"
+        activity?.title = "Chats"
 
         setHasOptionsMenu(true)
         binding = DataBindingUtil.inflate(inflater, R.layout.home_fragment, container, false)
@@ -196,18 +196,18 @@ class HomeFragment : Fragment() {
 
     override fun onOptionsItemSelected(item: MenuItem) = when (item.itemId) {
 
-        R.id.action_add_friend -> {
-            findNavController().navigate(R.id.action_homeFragment_to_findUserFragment)
-            true
-        }
-        R.id.action_edit_profile -> {
-            findNavController().navigate(R.id.action_homeFragment_to_profileFragment)
-            true
-        }
-        R.id.action_logout -> {
-            logout()
-            true
-        }
+//        R.id.action_add_friend -> {
+//            findNavController().navigate(R.id.action_homeFragment_to_findUserFragment)
+//            true
+//        }
+//        R.id.action_edit_profile -> {
+//            findNavController().navigate(R.id.action_homeFragment_to_profileFragment)
+//            true
+//        }
+//        R.id.action_logout -> {
+//            logout()
+//            true
+//        }
         R.id.action_incoming_requests -> {
             findNavController().navigate(R.id.action_homeFragment_to_incomingRequestsFragment)
 

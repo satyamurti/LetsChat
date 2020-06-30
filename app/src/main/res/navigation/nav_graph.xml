@@ -110,6 +110,9 @@
         <action
             android:id="@+id/action_roomChatFragment_to_incomingRequestsFragment"
             app:destination="@id/incomingRequestsFragment" />
+        <action
+            android:id="@+id/action_roomChatFragment_to_homeFragmentRoom"
+            app:destination="@id/homeFragmentRoom" />
     </fragment>
     <fragment
         android:id="@+id/homeFragmentRoom"
@@ -118,5 +121,8 @@
         <action
             android:id="@+id/action_homeFragmentRoom_to_homeFragment"
             app:destination="@id/homeFragment" />
+        <action
+            android:id="@+id/action_homeFragmentRoom_to_roomChatFragment"
+            app:destination="@id/roomChatFragment" />
     </fragment>
 </navigation>

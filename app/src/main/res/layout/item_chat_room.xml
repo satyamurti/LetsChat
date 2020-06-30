@@ -22,7 +22,7 @@
 
 
         <ImageView
-            android:id="@+id/imageView"
+            android:id="@+id/ivGroupImage"
             android:layout_width="65dp"
             android:layout_height="65dp"
             android:layout_marginStart="16dp"
@@ -31,6 +31,7 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
+            app:setRoundImageFromGroupName="@{groupName}"
             android:src="@drawable/registration_illu" />
 
         <TextView
@@ -44,7 +45,7 @@
             android:textAppearance="@style/TextAppearance.AppCompat.Headline"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/imageView"
+            app:layout_constraintStart_toEndOf="@+id/ivGroupImage"
             app:layout_constraintTop_toTopOf="parent"
             tools:text="Dipesh Kafle" />
 

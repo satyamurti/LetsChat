@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+<!--    <item-->
+<!--        android:id="@+id/action_add_friend"-->
+<!--        android:title="Add Freinds" />-->
+    <item
+        android:id="@+id/action_create_group"
+        android:icon="@drawable/groupsicon"
+        android:title="@string/create_group" />
+    <item
+        android:id="@+id/action_join_group_using_key"
+        android:icon="@drawable/ic_done_black_24dp"
+        android:title="@string/join_group_using_key" />
+
+    <item
+        android:id="@+id/action_search"
+        android:icon="@drawable/ic_search_white_24dp"
+        app:actionViewClass="androidx.appcompat.widget.SearchView"
+        app:showAsAction="ifRoom|collapseActionView"
+        android:title="" />
+</menu>

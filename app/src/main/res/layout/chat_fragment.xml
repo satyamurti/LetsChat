@@ -54,7 +54,7 @@
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:id="@+id/messageLayout"
                     android:layout_width="0dp"
-                    android:layout_height="56dp"
+                    android:layout_height="wrap_content"
                     android:layout_margin="8dp"
                     android:background="@drawable/circularbordersolid"
                     app:layout_constraintBottom_toBottomOf="@+id/recordFab"
@@ -80,18 +80,18 @@
                     <EditText
                         android:id="@+id/messageEditText"
                         android:layout_width="0dp"
-                        android:layout_height="56dp"
+                        android:layout_height="wrap_content"
                         android:background="@drawable/circularbordersolid"
                         android:hint="@string/type_a_message"
                         android:imeOptions="actionSend"
-                        android:inputType="text"
+                        android:layout_marginBottom="14dp"
+                        android:inputType="textMultiLine|textCapSentences|textAutoCorrect"
                         android:paddingStart="16sp"
                         android:textSize="16sp"
                         app:errorEnabled="true"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toStartOf="@+id/attachmentImageView"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent" />
+                        app:layout_constraintStart_toStartOf="parent" />
 
                 </androidx.constraintlayout.widget.ConstraintLayout>
 

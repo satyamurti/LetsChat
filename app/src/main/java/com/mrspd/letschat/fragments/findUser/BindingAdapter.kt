@@ -12,6 +12,7 @@ import com.google.android.material.button.MaterialButton
 import com.google.firebase.Timestamp
 import com.mrspd.letschat.R
 import com.mrspd.letschat.models.ChatParticipant
+import com.mrspd.letschat.models.GroupName
 import com.mrspd.letschat.models.User
 import com.mrspd.letschat.util.LoadState
 
@@ -144,6 +145,20 @@ fun setRoundImageFromChatParticipant(imageView: ImageView, chatParticipant: Chat
 
     Glide.with(imageView.context)
         .load(chatParticipant.particpant!!.profile_picture_url)
+        .apply(
+            RequestOptions()
+                .placeholder(R.drawable.loading_animation)
+                .error(R.drawable.anonymous_profile)
+                .circleCrop()
+        )
+        .into(imageView)
+
+}
+@BindingAdapter("setRoundImageFromGroupName")
+fun setRoundImageFromGroupName(imageView: ImageView, groupName: GroupName) {
+
+    Glide.with(imageView.context)
+        .load(groupName.imageurl)
         .apply(
             RequestOptions()
                 .placeholder(R.drawable.loading_animation)

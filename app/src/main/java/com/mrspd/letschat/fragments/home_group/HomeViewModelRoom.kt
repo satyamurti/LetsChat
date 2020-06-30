@@ -2,6 +2,7 @@ package com.mrspd.letschat.fragments.home_group
 
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import com.google.firebase.firestore.FieldValue
 import com.google.firebase.firestore.Query
 import com.mrspd.letschat.models.GroupName
 import com.mrspd.letschat.models.User
@@ -15,12 +16,23 @@ class HomeViewModelRoom : ViewModel() {
     init {
         getUserData()
     }
- //  val    grouplist = ArrayList<String>()
+    private val messageCollectionReference = FirestoreUtil.firestoreInstance.collection("messages")
+
+    //  val    grouplist = ArrayList<String>()
     private val groupParticipantList: MutableList<GroupName> by lazy { mutableListOf<GroupName>() }
     private val grouplist =
         MutableLiveData<MutableList<GroupName>>()
     val loggedUserMutableLiveData = MutableLiveData<User>()
 
+
+    fun createRoom(name: String){
+        messageCollectionReference.document(name)
+            .update(
+                "chat_members_in_group",
+                FieldValue.arrayUnion(name,name)
+            )
+        print("Yes created room")
+    }
 
     fun getRooms(loggedUser: User): MutableLiveData<MutableList<GroupName>> {
 
@@ -34,11 +46,6 @@ class HomeViewModelRoom : ViewModel() {
 
         val loggedUserId = loggedUser.uid.toString()
 
-//        FirestoreUtil.firestoreInstance.collection("users").document(loggedUserId).get()
-//            .addOnSuccessListener {group ->
-//               grouplist.addAll(group.get("groups") as Collection<String>)
-//                getGroups(grouplist)
-//            }
         val query: Query = FirestoreUtil.firestoreInstance.collection("messages")
                 .whereArrayContains("chat_members_in_group", loggedUserId)
 
@@ -47,12 +54,14 @@ class HomeViewModelRoom : ViewModel() {
                 groupParticipantList.clear()
 
                 if (!querySnapshot?.documents.isNullOrEmpty()) {
-                    println("Aree  hua bhai sorry")
+                    println("Aree  hua bhai ")
 
-                    val groupName = GroupName()
+
 
                     querySnapshot?.documents?.forEach {document ->
+                        val groupName = GroupName()
                         groupName.name = document.get("group_name") as String?
+                        groupName.imageurl = document.get("imageurl") as String?
                         groupParticipantList.add(groupName)
                         grouplist.value = groupParticipantList
                     }

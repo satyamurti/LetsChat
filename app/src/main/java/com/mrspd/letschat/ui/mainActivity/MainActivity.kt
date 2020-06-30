@@ -144,15 +144,15 @@ class MainActivity : AppCompatActivity(){
     ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     private val mOnNavigationItemSelectedListener = BottomNavigationView.OnNavigationItemSelectedListener {item ->
             when (item.itemId) {
-//                R.id.chatFragment -> {
-//                    d("gghh","yes group")
-//
-//                    var navOptions = NavOptions.Builder().setPopUpTo(R.id.nav_graph, true).build()
-//                    if (isValidDestination(R.id.homeFragment)) {
-//                        Navigation.findNavController(this, R.id.nav_host_fragment)
-//                            .navigate(R.id.homeFragment, null, navOptions)
-//                    }
-//                }
+                R.id.chatFragment -> {
+                    d("gghh","yes group")
+
+                    var navOptions = NavOptions.Builder().setPopUpTo(R.id.nav_graph, true).build()
+                    if (isValidDestination(R.id.homeFragment)) {
+                        Navigation.findNavController(this, R.id.nav_host_fragment)
+                            .navigate(R.id.homeFragment, null, navOptions)
+                    }
+                }
                 R.id.groupFragment -> {
                 d("gghh","yes group")
                 if (isValidDestination(R.id.groupFragment)) {
@@ -168,14 +168,14 @@ class MainActivity : AppCompatActivity(){
 //                            .navigate(R.id.homeFragment)
 //                    }
 //                }
-//                R.id.searchFragment -> {
-//                    d("gghh","yes group")
-//
-//                    if (isValidDestination(R.id.searchFragment)) {
-//                        Navigation.findNavController(this, R.id.nav_host_fragment)
-//                            .navigate(R.id.profileFragment)
-//                    }
-//                }
+                R.id.searchFragment -> {
+                    d("gghh","yes group")
+
+                    if (isValidDestination(R.id.searchFragment)) {
+                        Navigation.findNavController(this, R.id.nav_host_fragment)
+                            .navigate(R.id.findUserFragment)
+                    }
+                }
                 R.id.profileFragment -> {
                     d("gghh","yes group")
 
