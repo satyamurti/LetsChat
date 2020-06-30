@@ -1,12 +1,13 @@
-package com.mrspd.letschat.fragments.profile
+package com.mrspd.letschat.fragments.group_info
 
-import android.content.Context.MODE_PRIVATE
+import android.content.Context
 import android.content.Intent
 import android.content.SharedPreferences
 import android.graphics.Bitmap
 import android.graphics.Color
 import android.os.Bundle
 import android.provider.MediaStore
+import android.util.Log.d
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -23,11 +24,15 @@ import com.bumptech.glide.request.RequestOptions
 import com.google.android.material.bottomsheet.BottomSheetBehavior
 import com.google.gson.Gson
 import com.mrspd.letschat.R
-import com.mrspd.letschat.databinding.ProfileFragmentBinding
+import com.mrspd.letschat.databinding.GroupinfoFragmentBinding
+import com.mrspd.letschat.fragments.profile.ProfileFragment
+import com.mrspd.letschat.fragments.profile.REQUEST_IMAGE_CAPTURE
+import com.mrspd.letschat.fragments.profile.SELECT_PROFILE_IMAGE_REQUEST
+import com.mrspd.letschat.models.GroupName
 import com.mrspd.letschat.models.User
 import com.mrspd.letschat.ui.mainActivity.SharedViewModel
 import com.mrspd.letschat.util.CLICKED_USER
-import com.mrspd.letschat.util.LOGGED_USER
+import com.mrspd.letschat.util.ClICKED_GROUP
 import com.mrspd.letschat.util.LoadState
 import com.mrspd.letschat.util.eventbus_events.KeyboardEvent
 import kotlinx.android.synthetic.main.activity_main.*
@@ -35,30 +40,27 @@ import kotlinx.android.synthetic.main.bottom_sheet_profile_picture.view.*
 import org.greenrobot.eventbus.EventBus
 import java.io.ByteArrayOutputStream
 
-const val SELECT_PROFILE_IMAGE_REQUEST = 5
-const val REQUEST_IMAGE_CAPTURE = 6
-
-class ProfileFragment : Fragment() {
+class GroupInfoFragment : Fragment() {
 
 
     private lateinit var mBottomSheetBehavior: BottomSheetBehavior<NestedScrollView>
-    lateinit var binding: ProfileFragmentBinding
-    lateinit var adapter: FriendsAdapter
+    lateinit var binding: GroupinfoFragmentBinding
+    lateinit var adapter: MembersAdapter
 
     companion object {
         fun newInstance() =
             ProfileFragment()
     }
 
-    private lateinit var viewModel: ProfileViewModel
+    private lateinit var viewModel: GroupInfoViewModel
     private lateinit var sharedViewModel: SharedViewModel
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        activity?.title = "My profile"
-        binding = DataBindingUtil.inflate(inflater, R.layout.profile_fragment, container, false)
+        activity?.title = "Group Information"
+        binding = DataBindingUtil.inflate(inflater, R.layout.groupinfo_fragment, container, false)
         return binding.root
     }
 
@@ -67,7 +69,7 @@ class ProfileFragment : Fragment() {
 
         getActivity()?.navView?.visibility = View.GONE
 
-        viewModel = ViewModelProviders.of(this).get(ProfileViewModel::class.java)
+        viewModel = ViewModelProviders.of(this).get(GroupInfoViewModel::class.java)
         sharedViewModel = ViewModelProviders.of(activity!!).get(SharedViewModel::class.java)
 
         //setup bottom sheet
@@ -75,21 +77,22 @@ class ProfileFragment : Fragment() {
 
 
         //get user from shared preferences
-        val mPrefs: SharedPreferences = activity!!.getPreferences(MODE_PRIVATE)
+        val mPrefs: SharedPreferences = activity!!.getPreferences(Context.MODE_PRIVATE)
         val gson = Gson()
-        val json: String? = mPrefs.getString(LOGGED_USER, null)
-        val loggedUser: User = gson.fromJson(json, User::class.java)
+        val json: String? = mPrefs.getString(ClICKED_GROUP, null)
+//        val group: GroupName = gson.fromJson(json, GroupName::class.java)
+        val group = gson.fromJson(arguments?.getString(ClICKED_GROUP), GroupName::class.java)
+
         //show user name & email & bio
-        binding.bioTextView.text = loggedUser.bio ?: "No bio yet"
-        binding.email.text = loggedUser.email
-        binding.name.text = loggedUser.username
+        binding.descriptionTextView.text = group.description ?: "No Description yet"
+        binding.groupName.text = group.name
         //download profile photo
-        setProfileImage(loggedUser.profile_picture_url)
+        setProfileImage(group.imageurl)
 
 
         //create adapter and handle recycle item click callback
-        adapter = FriendsAdapter(object :
-            FriendsAdapter.ItemClickCallback {
+        adapter = MembersAdapter(object :
+            MembersAdapter.ItemClickCallback {
             override fun onItemClicked(clickedUser: User) {
 
                 val clickedUserString = gson.toJson(clickedUser)
@@ -99,7 +102,7 @@ class ProfileFragment : Fragment() {
                 )
 
                 findNavController().navigate(
-                    R.id.action_profileFragment_to_differentUserProfile,
+                    R.id.action_groupInfoFragment_to_differentUserProfile,
                     bundle
                 )
             }
@@ -107,18 +110,18 @@ class ProfileFragment : Fragment() {
 
 
         //load friends of logged in user and show in recycler
-        sharedViewModel.loadFriends(loggedUser).observe(viewLifecycleOwner, Observer { friendsList ->
+        sharedViewModel.loadMembers(group).observe(viewLifecycleOwner, Observer { memberlist ->
             //hide loading
             binding.loadingFriendsImageView.visibility = View.GONE
-            if (friendsList != null) {
+            if (memberlist != null) {
                 binding.friendsLayout.visibility = View.VISIBLE
                 binding.noFriendsLayout.visibility = View.GONE
-                showFriendsInRecycler(friendsList)
+                showFriendsInRecycler(memberlist)
             } else {
                 binding.friendsLayout.visibility = View.GONE
                 binding.noFriendsLayout.visibility = View.VISIBLE
                 binding.addFriendsButton.setOnClickListener {
-                    this@ProfileFragment.findNavController()
+                    this@GroupInfoFragment.findNavController()
                         .navigate(R.id.action_profileFragment_to_findUserFragment)
                 }
             }
@@ -150,7 +153,7 @@ class ProfileFragment : Fragment() {
                 //show edit text to allow user to edit bio and change text view text to submit
                 binding.editTextview.text = getString(R.string.submit)
                 binding.editTextview.setTextColor(Color.GREEN)
-                binding.bioTextView.visibility = View.GONE
+                binding.descriptionTextView.visibility = View.GONE
                 binding.newBioEditText.visibility = View.VISIBLE
 
 
@@ -158,8 +161,8 @@ class ProfileFragment : Fragment() {
                 //hide edit text and upload changes to user document
                 binding.editTextview.text = getString(R.string.edit)
                 binding.editTextview.setTextColor(Color.parseColor("#b39ddb"))
-                binding.bioTextView.visibility = View.VISIBLE
-                binding.bioTextView.text = binding.newBioEditText.text
+                binding.descriptionTextView.visibility = View.VISIBLE
+                binding.descriptionTextView.text = binding.newBioEditText.text
                 binding.newBioEditText.visibility = View.GONE
                 EventBus.getDefault().post(KeyboardEvent())
                 //upload bio to user document
@@ -173,8 +176,9 @@ class ProfileFragment : Fragment() {
 
     }
 
-    private fun setProfileImage(profilePictureUrl: String?) {
-        Glide.with(this).load(profilePictureUrl)
+    private fun setProfileImage(groupimage: String?) {
+        d("gghh"," image loading...")
+        Glide.with(this).load(groupimage)
             .apply(
                 RequestOptions()
                     .placeholder(R.drawable.loading_animation)

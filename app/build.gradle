@@ -110,7 +110,7 @@ dependencies {
     implementation 'com.github.stfalcon:stfalcon-imageviewer:1.0.0'
 
 
-
+    implementation 'org.ocpsoft.prettytime:prettytime:4.0.1.Final'
     //FCM
     implementation 'com.google.firebase:firebase-messaging:20.2.0'
     // Apply the Crashlytics Gradle plugin

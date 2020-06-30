@@ -232,6 +232,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="10dp"
+                            app:spanCount="4"
                             app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
                             tools:listitem="@layout/friend_item" />
                     </LinearLayout>

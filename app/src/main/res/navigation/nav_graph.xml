@@ -113,6 +113,9 @@
         <action
             android:id="@+id/action_roomChatFragment_to_homeFragmentRoom"
             app:destination="@id/homeFragmentRoom" />
+        <action
+            android:id="@+id/action_roomChatFragment_to_groupInfoFragment"
+            app:destination="@id/groupInfoFragment" />
     </fragment>
     <fragment
         android:id="@+id/homeFragmentRoom"
@@ -124,5 +127,16 @@
         <action
             android:id="@+id/action_homeFragmentRoom_to_roomChatFragment"
             app:destination="@id/roomChatFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/groupInfoFragment"
+        android:name="com.mrspd.letschat.fragments.group_info.GroupInfoFragment"
+        android:label="GroupInfoFragment" >
+        <action
+            android:id="@+id/action_groupInfoFragment_to_roomChatFragment"
+            app:destination="@id/roomChatFragment" />
+        <action
+            android:id="@+id/action_groupInfoFragment_to_differentUserProfile"
+            app:destination="@id/differentUserProfile" />
     </fragment>
 </navigation>

@@ -3,6 +3,7 @@ package com.mrspd.letschat.models
 
 data class GroupName(
     var name: String? = null,
+    var description: String? = null,
     var imageurl: String? = null,
     var listOfmembers: List<String>? = null
 //    var lastMessageDate: Map<String, Double>? = null,

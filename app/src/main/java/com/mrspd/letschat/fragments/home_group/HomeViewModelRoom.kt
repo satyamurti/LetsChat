@@ -62,6 +62,7 @@ class HomeViewModelRoom : ViewModel() {
                         val groupName = GroupName()
                         groupName.name = document.get("group_name") as String?
                         groupName.imageurl = document.get("imageurl") as String?
+                        groupName.description = document.get("description") as String?
                         groupName.listOfmembers = document.get("chat_members_in_group") as List<String>?
                         groupParticipantList.add(groupName)
                         grouplist.value = groupParticipantList

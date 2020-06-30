@@ -22,11 +22,13 @@ import android.view.*
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.os.bundleOf
 import androidx.core.widget.NestedScrollView
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
+import androidx.navigation.fragment.findNavController
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
 import com.google.android.material.bottomsheet.BottomSheetBehavior
@@ -174,7 +176,7 @@ class RoomChatFragment : Fragment() {
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
 
-pinbar.visibility = View.GONE
+        pinbar.visibility = View.GONE
         //setup bottom sheet
         mBottomSheetBehavior = BottomSheetBehavior.from(binding.bottomSheet)
 
@@ -190,7 +192,7 @@ pinbar.visibility = View.GONE
         loggedUser = gson.fromJson(json, User::class.java)
 
         //get receiver data from contacts fragment(NOTE:IF NAVIGATING FROM FCM-NOTIFICATION USER ONLY HAS id,username)
-       clickedGroup = gson.fromJson(arguments?.getString(ClICKED_GROUP), GroupName::class.java)
+        clickedGroup = gson.fromJson(arguments?.getString(ClICKED_GROUP), GroupName::class.java)
 
         activity?.title = clickedGroup.name
 
@@ -615,8 +617,13 @@ pinbar.visibility = View.GONE
             Toast.makeText(
                 activity?.applicationContext,
                 "Number of members  are ${clickedGroup.listOfmembers?.size.toString()} ",
-                Toast.LENGTH_LONG
+                Toast.LENGTH_SHORT
             ).show()
+            val clickedGroup = gson.toJson(clickedGroup)
+            findNavController().navigate(R.id.action_roomChatFragment_to_groupInfoFragment, bundleOf(
+                ClICKED_GROUP to clickedGroup
+            ))
+
 //            GlobalScope.launch {
 //                showsizse()
 //            }

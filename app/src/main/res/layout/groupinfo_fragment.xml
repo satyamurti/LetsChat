@@ -57,7 +57,7 @@
                             android:scaleType="centerCrop"
                             app:civ_border_color="#EDDFF8"
                             app:civ_border_width="2dp"
-                            app:srcCompat="@drawable/anonymous_profile"
+                            app:srcCompat="@drawable/groupsicon"
 
                             />
 
@@ -94,7 +94,7 @@
                         app:layout_constraintStart_toEndOf="@+id/cardView2"
                         app:layout_constraintTop_toTopOf="parent"
                         app:layout_constraintVertical_bias="0.537"
-                        tools:text="Dipesh Kafle" />
+                        tools:text="Test Group 1" />
 
 <!--                    <TextView-->
 <!--                        android:id="@+id/email"-->
@@ -115,6 +115,7 @@
                         android:layout_width="40dp"
                         android:layout_height="40dp"
                         android:padding="8dp"
+                        android:visibility="gone"
                         android:src="@drawable/ic_baseline_edit_24"
                         app:layout_constraintEnd_toEndOf="@+id/cardView2"
                         app:layout_constraintStart_toStartOf="@+id/cardView2"
@@ -171,6 +172,8 @@
                                 android:layout_height="wrap_content"
                                 android:layout_marginEnd="10dp"
                                 android:text="@string/edit"
+                                android:visibility="gone"
+
                                 android:textColor="@color/primaryColor"
                                 android:textSize="14sp" />
                         </LinearLayout>
