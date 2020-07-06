@@ -1,8 +1,7 @@
-package com.mrspd.letschat.fragments.home_group
+package com.mrspd.letschat.fragments.add_members_to_group
 
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.google.firebase.firestore.FieldValue
 import com.google.firebase.firestore.Query
 import com.mrspd.letschat.models.GroupName
 import com.mrspd.letschat.models.User
@@ -10,7 +9,7 @@ import com.mrspd.letschat.util.AuthUtil
 import com.mrspd.letschat.util.FirestoreUtil
 
 
-class HomeViewModelRoom : ViewModel() {
+class AddMembersToGroupViewModel : ViewModel() {
 
     var calledBefore = false
     init {
@@ -25,16 +24,7 @@ class HomeViewModelRoom : ViewModel() {
     val loggedUserMutableLiveData = MutableLiveData<User>()
 
 
-    fun createRoom(name: String){
-        messageCollectionReference.document(name)
-            .update(
-                "chat_members_in_group",
-                FieldValue.arrayUnion(name,name)
-            )
-        print("Yes created room")
-    }
-
-    fun getRooms(loggedUser: User): MutableLiveData<MutableList<GroupName>> {
+    fun getAllMembers(loggedUser: User): MutableLiveData<MutableList<GroupName>> {
 
         //this method is called each time user document changes but i want to attach listener only once so check with calledBefore
         if (calledBefore) {

@@ -49,7 +49,7 @@ class ChatPreviewAdapterRoom(private val clickListener: ClickListener) :
             binding.groupName = chatParticipant
             binding.clickListener = clickListener
             //if query text isn't empty set the selected text with sky blue+bold
-            val groupname = chatParticipant.name
+            val groupname = chatParticipant.group_name
             if (mQuery.isEmpty()) {
                 binding.nameTextView.text = groupname
              } else {
@@ -100,7 +100,7 @@ class ChatPreviewAdapterRoom(private val clickListener: ClickListener) :
 
                    } else {
                        for (chatParticipant in chatList) {
-                           if (chatParticipant.name?.toLowerCase(Locale.ENGLISH)?.contains(
+                           if (chatParticipant.group_name?.toLowerCase(Locale.ENGLISH)?.contains(
                                    charString.toLowerCase(Locale.ENGLISH)
                                )!!
                            ) {
@@ -141,7 +141,7 @@ class ChatPreviewAdapterRoom(private val clickListener: ClickListener) :
 
 class DiffCallbackUsers : DiffUtil.ItemCallback<GroupName>() {
     override fun areItemsTheSame(oldItem: GroupName, newItem: GroupName): Boolean {
-        return oldItem.name == newItem.name
+        return oldItem.group_name == newItem.group_name
     }
 
     override fun areContentsTheSame(oldItem: GroupName, newItem: GroupName): Boolean {

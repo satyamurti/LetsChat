@@ -187,10 +187,10 @@ class HomeFragmentRoom : Fragment() {
 
     override fun onOptionsItemSelected(item: MenuItem) = when (item.itemId) {
 
-//        R.id.action_add_friend -> {
-//            findNavController().navigate(R.id.action_homeFragment_to_findUserFragment)
-//            true
-//        }
+        R.id.action_create_group -> {
+            findNavController().navigate(R.id.action_homeFragmentRoom_to_createGroupFragment)
+            true
+        }
 //        R.id.action_edit_profile -> {
 //            findNavController().navigate(R.id.action_homeFragment_to_profileFragment)
 //            true
@@ -199,12 +199,12 @@ class HomeFragmentRoom : Fragment() {
 //            logout()
 //            true
 //        }
-        R.id.action_incoming_requests -> {
-            findNavController().navigate(R.id.action_homeFragment_to_incomingRequestsFragment)
-
-
-            true
-        }
+//        R.id.action_incoming_requests -> {
+//            findNavController().navigate(R.id.action_homeFragment_to_incomingRequestsFragment)
+//
+//
+//            true
+//        }
 
         else -> {
             // If we got here, the user's action was not recognized.

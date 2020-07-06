@@ -41,7 +41,7 @@
             android:layout_marginStart="7dp"
             android:ellipsize="end"
             android:maxLines="1"
-            android:text="@{groupName.name}"
+            android:text="@{groupName.group_name}"
             android:textAppearance="@style/TextAppearance.AppCompat.Headline"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"

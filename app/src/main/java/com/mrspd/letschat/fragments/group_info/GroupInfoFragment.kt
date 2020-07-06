@@ -36,7 +36,6 @@ import com.mrspd.letschat.util.ClICKED_GROUP
 import com.mrspd.letschat.util.LoadState
 import com.mrspd.letschat.util.eventbus_events.KeyboardEvent
 import kotlinx.android.synthetic.main.activity_main.*
-import kotlinx.android.synthetic.main.bottom_sheet_profile_picture.view.*
 import org.greenrobot.eventbus.EventBus
 import java.io.ByteArrayOutputStream
 
@@ -67,7 +66,7 @@ class GroupInfoFragment : Fragment() {
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
 
-        getActivity()?.navView?.visibility = View.GONE
+        activity?.navView?.visibility = View.GONE
 
         viewModel = ViewModelProviders.of(this).get(GroupInfoViewModel::class.java)
         sharedViewModel = ViewModelProviders.of(activity!!).get(SharedViewModel::class.java)
@@ -85,7 +84,7 @@ class GroupInfoFragment : Fragment() {
 
         //show user name & email & bio
         binding.descriptionTextView.text = group.description ?: "No Description yet"
-        binding.groupName.text = group.name
+        binding.groupName.text = group.group_name
         //download profile photo
         setProfileImage(group.imageurl)
 

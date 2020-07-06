@@ -160,14 +160,14 @@ class MainActivity : AppCompatActivity(){
                         .navigate(R.id.homeFragmentRoom)
                 }
             }
-//                R.id.ARselfieFragment -> {
-//                    d("gghh","yes group")
-//
-//                    if (isValidDestination(R.id.ARselfieFragment)) {
-//                        Navigation.findNavController(this, R.id.nav_host_fragment)
-//                            .navigate(R.id.homeFragment)
-//                    }
-//                }
+                R.id.ARselfieFragment -> {
+                    d("gghh","yes group")
+
+                    if (isValidDestination(R.id.ARselfieFragment)) {
+                        Navigation.findNavController(this, R.id.nav_host_fragment)
+                            .navigate(R.id.selfieFragment)
+                    }
+                }
                 R.id.searchFragment -> {
                     d("gghh","yes group")
 

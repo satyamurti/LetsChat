@@ -10,6 +10,11 @@
     android:icon="@drawable/ic_baseline_info_24"
     app:showAsAction="ifRoom" />
     <item
+    android:id="@+id/action_addmembers"
+    android:title="Add Members"
+    android:icon="@drawable/ic_baseline_group_add_24"
+    app:showAsAction="ifRoom" />
+    <item
         android:id="@+id/action_search"
         android:icon="@drawable/ic_search_white_24dp"
         app:actionViewClass="androidx.appcompat.widget.SearchView"

@@ -33,7 +33,7 @@ class HomeFragment : Fragment() {
     private val adapter: ChatPreviewAdapter by lazy {
         ChatPreviewAdapter(ClickListener { chatParticipant ->
             //navigate to chat with selected user on chat outer item click
-            getActivity()?.navView?.visibility = View.GONE
+            activity?.navView?.visibility = View.GONE
             val clickedUser = gson.toJson(chatParticipant.particpant)
             findNavController().navigate(
                 R.id.action_homeFragment_to_chatFragment, bundleOf(
@@ -67,7 +67,7 @@ class HomeFragment : Fragment() {
         super.onActivityCreated(savedInstanceState)
         viewModel = ViewModelProviders.of(this).get(HomeViewModel::class.java)
         sharedViewModel = ViewModelProviders.of(activity!!).get(SharedViewModel::class.java)
-        getActivity()?.navView?.visibility = View.VISIBLE
+        activity?.navView?.visibility = View.VISIBLE
         //get logged user token and add it to user document (for FCM)
         MyFirebaseMessagingService.getInstanceId()
 
@@ -204,10 +204,10 @@ class HomeFragment : Fragment() {
 //            findNavController().navigate(R.id.action_homeFragment_to_profileFragment)
 //            true
 //        }
-//        R.id.action_logout -> {
-//            logout()
-//            true
-//        }
+        R.id.action_logout -> {
+            logout()
+            true
+        }
         R.id.action_incoming_requests -> {
             findNavController().navigate(R.id.action_homeFragment_to_incomingRequestsFragment)
 

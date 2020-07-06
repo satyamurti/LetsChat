@@ -112,11 +112,17 @@ dependencies {
 
     implementation 'org.ocpsoft.prettytime:prettytime:4.0.1.Final'
     //FCM
-    implementation 'com.google.firebase:firebase-messaging:20.2.0'
+    implementation 'com.google.firebase:firebase-messaging:20.2.1'
     // Apply the Crashlytics Gradle plugin
     apply plugin: 'com.google.firebase.crashlytics'
     // Recommended: Add the Firebase SDK for Google Analytics.
     implementation 'com.google.firebase:firebase-analytics:17.4.3'
     // Add the Firebase SDK for Crashlytics.
-    implementation 'com.google.firebase:firebase-crashlytics:17.0.1'
+    implementation 'com.google.firebase:firebase-crashlytics:17.1.0'
+
+    //camerakit
+    implementation 'com.camerakit:camerakit:1.0.0-beta3.11'
+    implementation 'com.camerakit:jpegkit:0.1.0'
+    implementation 'org.jetbrains.kotlin:kotlin-stdlib-jdk7:1.3.72'
+    implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-android:1.3.5'
 }

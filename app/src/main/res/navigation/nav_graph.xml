@@ -53,6 +53,9 @@
         <action
             android:id="@+id/action_homeFragment_to_homeFragmentRoom"
             app:destination="@id/homeFragmentRoom" />
+        <action
+            android:id="@+id/action_homeFragment_to_selfieFragment"
+            app:destination="@id/selfieFragment" />
     </fragment>
     <fragment
         android:id="@+id/profileFragment"
@@ -127,6 +130,9 @@
         <action
             android:id="@+id/action_homeFragmentRoom_to_roomChatFragment"
             app:destination="@id/roomChatFragment" />
+        <action
+            android:id="@+id/action_homeFragmentRoom_to_createGroupFragment"
+            app:destination="@id/createGroupFragment" />
     </fragment>
     <fragment
         android:id="@+id/groupInfoFragment"
@@ -138,5 +144,21 @@
         <action
             android:id="@+id/action_groupInfoFragment_to_differentUserProfile"
             app:destination="@id/differentUserProfile" />
+    </fragment>
+    <fragment
+        android:id="@+id/selfieFragment"
+        android:name="com.mrspd.letschat.fragments.ArSefie.SelfieFragment"
+        android:label="SelfieFragment" >
+        <action
+            android:id="@+id/action_selfieFragment_to_homeFragment"
+            app:destination="@id/homeFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/createGroupFragment"
+        android:name="com.mrspd.letschat.fragments.create_group.CreateGroupFragment"
+        android:label="CreateGroupFragment" >
+        <action
+            android:id="@+id/action_createGroupFragment_to_homeFragmentRoom"
+            app:destination="@id/homeFragmentRoom" />
     </fragment>
 </navigation>

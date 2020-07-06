@@ -29,15 +29,15 @@
         <activity android:name=".ui.mainActivity.MainActivity"
             android:windowSoftInputMode="adjustNothing">
             <intent-filter>
-                <action android:name="CloudFunctionsAction" />
+                <action android:name="LetsChatCloudFuns" />
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
 
         </activity>
 
-        <meta-data
-            android:name="com.google.firebase.messaging.default_notification_icon"
-            android:resource="@drawable/appicon" />
+<!--        <meta-data-->
+<!--            android:name="com.google.firebase.messaging.default_notification_icon"-->
+<!--            android:resource="@drawable/appicon" />-->
         <service
             android:name=".services.MyFirebaseMessagingService"
             android:exported="false">

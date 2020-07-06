@@ -182,7 +182,7 @@ class RoomChatFragment : Fragment() {
 
         //set record view
         handleRecord()
-        getActivity()?.navView?.visibility = View.GONE
+        activity?.navView?.visibility = View.GONE
 
 
         //get logged user from shared preferences
@@ -194,10 +194,10 @@ class RoomChatFragment : Fragment() {
         //get receiver data from contacts fragment(NOTE:IF NAVIGATING FROM FCM-NOTIFICATION USER ONLY HAS id,username)
         clickedGroup = gson.fromJson(arguments?.getString(ClICKED_GROUP), GroupName::class.java)
 
-        activity?.title = clickedGroup.name
+        activity?.title = clickedGroup.group_name
 
         //user view model factory to pass ids on creation of view model
-        viewModeldFactory = ChatViewModelFactory(loggedUser.uid, clickedGroup.name!!)
+        viewModeldFactory = ChatViewModelFactory(loggedUser.uid, clickedGroup.group_name!!)
         viewModel =
             ViewModelProviders.of(this, viewModeldFactory).get(ChatViewModel::class.java)
 
@@ -258,7 +258,7 @@ class RoomChatFragment : Fragment() {
                         AuthUtil.getAuthId(),
                         Timestamp(Date()),
                         3.0,
-                        clickedGroup.name,
+                        clickedGroup.group_name,
                         loggedUser.username,
                         recordDuration.toString(),
                         recordUri.toString(),
@@ -373,7 +373,7 @@ class RoomChatFragment : Fragment() {
                 loggedUser.uid,
                 Timestamp(Date()),
                 0.0,
-                clickedGroup.name,
+                clickedGroup.group_name,
                 loggedUser.username,
                 binding.messageEditText.text.toString()
             )
@@ -400,7 +400,7 @@ class RoomChatFragment : Fragment() {
                         loggedUser.uid,
                         Timestamp(Date()),
                         2.0,
-                        clickedGroup.name,
+                        clickedGroup.group_name,
                         loggedUser.username,
                         chatFileMap["fileName"].toString(),
                         chatFileMap["downloadUri"].toString()
@@ -426,7 +426,7 @@ class RoomChatFragment : Fragment() {
                             loggedUser.uid,
                             Timestamp(Date()),
                             1.0,
-                            clickedGroup.name,
+                            clickedGroup.group_name,
                             loggedUser.username,
                             uploadedChatImageUri.toString()
                         )
@@ -459,7 +459,7 @@ class RoomChatFragment : Fragment() {
                 AuthUtil.getAuthId(),
                 null,
                 1.0,
-                clickedGroup.name,
+                clickedGroup.group_name,
                 loggedUser.username,
                 data.toString()
             )
@@ -497,7 +497,7 @@ class RoomChatFragment : Fragment() {
                 AuthUtil.getAuthId(),
                 null,
                 2.0,
-                clickedGroup.name,
+                clickedGroup.group_name,
                 loggedUser.username,
                 data.toString(),
                 data?.path.toString()
@@ -609,14 +609,14 @@ class RoomChatFragment : Fragment() {
 //            findNavController().navigate(R.id.action_homeFragment_to_profileFragment)
 //            true
 //        }
-//        R.id.action_logout -> {
-//            logout()
-//            true
-//        }
+        R.id.action_addmembers -> {
+
+            true
+        }
         R.id.action_information -> {
             Toast.makeText(
                 activity?.applicationContext,
-                "Number of members  are ${clickedGroup.listOfmembers?.size.toString()} ",
+                "Number of members  are ${clickedGroup.chat_members_in_group?.size.toString()} ",
                 Toast.LENGTH_SHORT
             ).show()
             val clickedGroup = gson.toJson(clickedGroup)
@@ -635,6 +635,10 @@ class RoomChatFragment : Fragment() {
             // Invoke the superclass to handle it.
             super.onOptionsItemSelected(item)
         }
+
+    }
+
+    private fun addMembers() {
 
     }
 

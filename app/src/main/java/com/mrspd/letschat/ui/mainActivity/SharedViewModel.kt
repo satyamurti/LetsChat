@@ -21,7 +21,7 @@ class SharedViewModel : ViewModel() {
 
     fun loadMembers(group: GroupName): LiveData<List<User>> {
 
-        val friendsIds = group.listOfmembers
+        val friendsIds = group.chat_members_in_group
         if (!friendsIds.isNullOrEmpty()) {
             val mFriendList = mutableListOf<User>()
             for (friendId in friendsIds) {
