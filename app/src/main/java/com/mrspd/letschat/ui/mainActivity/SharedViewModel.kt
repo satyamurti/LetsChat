@@ -41,7 +41,7 @@ class SharedViewModel : ViewModel() {
         return friendsListMutableLiveData
     }
 
-    fun loadFriends(loggedUser: User): LiveData<List<User>> {
+    fun loadFriends(loggedUser: User): MutableLiveData<List<User>> {
 
         val friendsIds = loggedUser.friends
         if (!friendsIds.isNullOrEmpty()) {

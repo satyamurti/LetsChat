@@ -610,7 +610,15 @@ class RoomChatFragment : Fragment() {
 //            true
 //        }
         R.id.action_addmembers -> {
-
+            Toast.makeText(
+                activity?.applicationContext,
+                "Number of members  are ${clickedGroup.chat_members_in_group?.size.toString()} ",
+                Toast.LENGTH_SHORT
+            ).show()
+            val clickedGroup = gson.toJson(clickedGroup)
+            findNavController().navigate(R.id.action_roomChatFragment_to_addMembersToGroupFragment, bundleOf(
+                ClICKED_GROUP to clickedGroup
+            ))
             true
         }
         R.id.action_information -> {

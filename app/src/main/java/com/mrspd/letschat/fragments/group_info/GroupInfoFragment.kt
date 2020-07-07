@@ -36,6 +36,7 @@ import com.mrspd.letschat.util.ClICKED_GROUP
 import com.mrspd.letschat.util.LoadState
 import com.mrspd.letschat.util.eventbus_events.KeyboardEvent
 import kotlinx.android.synthetic.main.activity_main.*
+import kotlinx.android.synthetic.main.bottom_sheet_profile_picture.view.*
 import org.greenrobot.eventbus.EventBus
 import java.io.ByteArrayOutputStream
 

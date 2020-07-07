@@ -18,6 +18,7 @@ import com.mrspd.letschat.models.GroupName
 import com.mrspd.letschat.util.ErrorMessage
 import com.mrspd.letschat.util.LoadState
 import kotlinx.android.synthetic.main.activity_main.*
+import kotlinx.android.synthetic.main.issue_layout.view.*
 import java.util.regex.Pattern
 
 class CreateGroupFragment : Fragment() {

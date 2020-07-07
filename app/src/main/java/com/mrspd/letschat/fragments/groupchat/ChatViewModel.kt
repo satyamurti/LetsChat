@@ -129,7 +129,7 @@ suspend fun getNumberOfGroupMembers() : Int{
                                         //add ids of chat members
                                         messageCollectionReference.document(groupname)
                                             .update(
-                                                "chat_members",
+                                                "chat_members_in_group",
                                                 FieldValue.arrayUnion(senderId)
                                             )
 

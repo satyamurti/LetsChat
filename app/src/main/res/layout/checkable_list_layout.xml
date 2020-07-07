@@ -1,6 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
-
-
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
 xmlns:app="http://schemas.android.com/apk/res-auto"
 xmlns:tools="http://schemas.android.com/tools">
@@ -14,10 +12,6 @@ xmlns:tools="http://schemas.android.com/tools">
     <variable
         name="user"
         type="com.mrspd.letschat.models.User" />
-    <!-- <variable
-         name="queryString"
-         type="String"
-         />-->
 </data>
 
 <androidx.constraintlayout.widget.ConstraintLayout
@@ -48,7 +42,7 @@ xmlns:tools="http://schemas.android.com/tools">
         android:checkMark="?android:attr/listChoiceIndicatorMultiple"
         android:gravity="center_vertical"
         android:layout_margin="4dp"
-        android:hint="name"
+        android:text="@{user.username}"
         android:padding="5sp"
         android:textColor="#000"
         android:textSize="20dp"
@@ -67,22 +61,3 @@ xmlns:tools="http://schemas.android.com/tools">
 </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
 
-    <!--<?xml version="1.0" encoding="utf-8"?>-->
-
-    <!--<CheckedTextView xmlns:android="http://schemas.android.com/apk/res/android"-->
-    <!--    android:id="@+id/txt_title"-->
-    <!--    android:layout_width="fill_parent"-->
-    <!--    android:layout_height="wrap_content"-->
-    <!--    android:gravity="center_vertical"-->
-    <!--    android:textSize="20dp"-->
-    <!--    android:hint="name"-->
-    <!--    android:textColor="#000"-->
-    <!--    android:paddingTop="14dp"-->
-    <!--    android:background="@drawable/inputs"-->
-    <!--    android:checkMark="?android:attr/listChoiceIndicatorMultiple"-->
-    <!--    />-->
-
-
-
-
-    <!--/////////////////////////////////////////////////////////////-->

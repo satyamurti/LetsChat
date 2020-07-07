@@ -36,19 +36,19 @@
                 app:layout_constraintVertical_bias="0.0"
                 tools:listitem="@layout/item_chat_one_to_one" />
 
-            <com.google.android.material.floatingactionbutton.FloatingActionButton
-                android:id="@+id/start_chat_fab"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="end|bottom"
-                android:layout_marginEnd="16dp"
-                android:layout_marginBottom="64dp"
-                android:background="@color/white"
-                android:backgroundTint="@color/white"
-                android:src="@drawable/chaticon"
-                app:backgroundTint="#FFFFFF"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent" />
+<!--            <com.google.android.material.floatingactionbutton.FloatingActionButton-->
+<!--                android:id="@+id/start_chat_fab"-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_gravity="end|bottom"-->
+<!--                android:layout_marginEnd="16dp"-->
+<!--                android:layout_marginBottom="64dp"-->
+<!--                android:background="@color/white"-->
+<!--                android:backgroundTint="@color/white"-->
+<!--                android:src="@drawable/chaticon"-->
+<!--                app:backgroundTint="#FFFFFF"-->
+<!--                app:layout_constraintBottom_toBottomOf="parent"-->
+<!--                app:layout_constraintEnd_toEndOf="parent" />-->
 
             <ImageView
                 android:id="@+id/loadingChatImageView"

@@ -24,6 +24,8 @@ import com.mrspd.letschat.util.AuthUtil
 import com.mrspd.letschat.util.CLICKED_USER
 import com.mrspd.letschat.util.ClICKED_GROUP
 import com.mrspd.letschat.util.FirestoreUtil
+import kotlinx.android.synthetic.main.home_fragment.*
+import kotlinx.android.synthetic.main.home_fragment_room.*
 
 class HomeFragmentRoom : Fragment() {
     private var receivedRequestsCount: Int? = null
@@ -66,7 +68,6 @@ class HomeFragmentRoom : Fragment() {
         super.onActivityCreated(savedInstanceState)
         viewModelRoom = ViewModelProviders.of(this).get(HomeViewModelRoom::class.java)
         sharedViewModel = ViewModelProviders.of(activity!!).get(SharedViewModel::class.java)
-
 
         //get logged user token and add it to user document (for FCM)
         MyFirebaseMessagingService.getInstanceId()
@@ -127,10 +128,10 @@ class HomeFragmentRoom : Fragment() {
         })
 
 
-        //handle startChatFab click
-        binding.startChatFab.setOnClickListener {
-            findNavController().navigate(R.id.action_homeFragment_to_contactsFragment)
-        }
+//        //handle startChatFab click
+//        binding.startChatFab.setOnClickListener {
+//            findNavController().navigate(R.id.action_homeFragment_to_contactsFragment)
+//        }
 
 
     }

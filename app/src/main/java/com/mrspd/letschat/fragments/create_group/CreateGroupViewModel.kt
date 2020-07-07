@@ -47,8 +47,6 @@ class CreateGroupViewModel : ViewModel() {
     }
 
     fun updateUserProfileForGroups(groupName: String) {
-
-
         userDocRef?.update(
             "groups_in",
             FieldValue.arrayUnion(groupName, groupName)
