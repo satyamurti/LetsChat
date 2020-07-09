@@ -13,8 +13,6 @@ class MyFirebaseMessagingService : FirebaseMessagingService() {
     val TAG = "gghh"
 
     companion object {
-
-
         //FCM uses tokens to identify devices
         fun getInstanceId(): Unit {
             FirebaseInstanceId.getInstance().instanceId

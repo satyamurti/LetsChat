@@ -7,6 +7,21 @@ apply plugin: 'kotlin-android-extensions'
 
 apply plugin: "androidx.navigation.safeargs"
 apply plugin: 'com.google.gms.google-services'
+apply plugin: 'com.google.ar.sceneform.plugin'
+
+
+sceneform.asset (
+        'sampledata/models/fox_face.fbx',
+        'sampledata/models/fox_face_material.mat',
+        'sampledata/models/fox_face.sfa',
+        'src/main/res/raw/fox_face'
+)
+sceneform.asset (
+        'sampledata/models/mask.blend',
+        'sampledata/models/fox_face_material.mat',
+        'sampledata/models/fox_face.sfa',
+        'src/main/res/raw/mask_blend'
+)
 
 android {
 
@@ -33,7 +48,7 @@ android {
     buildToolsVersion "29.0.2"
     defaultConfig {
         applicationId "com.mrspd.letschat"
-        minSdkVersion 21
+        minSdkVersion 24
         targetSdkVersion 29
         versionCode 1
         versionName "1.0"
@@ -120,9 +135,10 @@ dependencies {
     // Add the Firebase SDK for Crashlytics.
     implementation 'com.google.firebase:firebase-crashlytics:17.1.0'
 
-//    //camerakit
-//    implementation 'com.camerakit:camerakit:1.0.0-beta3.11'
-//    implementation 'com.camerakit:jpegkit:0.1.0'
-//    implementation 'org.jetbrains.kotlin:kotlin-stdlib-jdk7:1.3.72'
-//    implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-android:1.3.5'
+    //AR and SceneForm
+
+    implementation 'com.google.ar:core:1.18.0'
+    implementation "com.google.ar.sceneform.ux:sceneform-ux:1.15.0"
+    implementation "com.google.ar.sceneform:animation:1.15.0"
+    implementation 'com.google.ar.sceneform:core:1.15.0'
 }

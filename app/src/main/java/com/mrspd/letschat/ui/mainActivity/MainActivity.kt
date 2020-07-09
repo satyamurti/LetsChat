@@ -165,7 +165,7 @@ class MainActivity : AppCompatActivity(){
 
                     if (isValidDestination(R.id.ARselfieFragment)) {
                         Navigation.findNavController(this, R.id.nav_host_fragment)
-                            .navigate(R.id.selfieFragment)
+                            .navigate(R.id.ARSelfieFragmentHome)
                     }
                 }
                 R.id.searchFragment -> {

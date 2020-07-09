@@ -54,8 +54,8 @@
             android:id="@+id/action_homeFragment_to_homeFragmentRoom"
             app:destination="@id/homeFragmentRoom" />
         <action
-            android:id="@+id/action_homeFragment_to_selfieFragment"
-            app:destination="@id/selfieFragment" />
+            android:id="@+id/action_homeFragment_to_ARSelfieFragment"
+            app:destination="@id/ARSelfieFragmentHome" />
     </fragment>
     <fragment
         android:id="@+id/profileFragment"
@@ -153,8 +153,8 @@
         android:name="com.mrspd.letschat.fragments.ArSefie.SelfieFragment"
         android:label="SelfieFragment" >
         <action
-            android:id="@+id/action_selfieFragment_to_homeFragment"
-            app:destination="@id/homeFragment" />
+            android:id="@+id/action_selfieFragment_to_ARSelfieFragmentHome"
+            app:destination="@id/ARSelfieFragmentHome" />
     </fragment>
     <fragment
         android:id="@+id/createGroupFragment"
@@ -171,5 +171,35 @@
         <action
             android:id="@+id/action_addMembersToGroupFragment_to_roomChatFragment"
             app:destination="@id/roomChatFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/ARSelfieFragmentHome"
+        android:name="com.mrspd.letschat.fragments.ArSefie.ARSelfieFragmentHome"
+        android:label="ARSelfieFragmentHome" >
+        <action
+            android:id="@+id/action_ARSelfieFragmentHome_to_ARSelfieFragment2"
+            app:destination="@id/ARSelfieFragment2" />
+        <action
+            android:id="@+id/action_ARSelfieFragmentHome_to_selfieFragment"
+            app:destination="@id/selfieFragment" />
+        <action
+            android:id="@+id/action_ARSelfieFragmentHome_to_ARFloorFragment"
+            app:destination="@id/ARFloorFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/ARSelfieFragment2"
+        android:name="com.mrspd.letschat.fragments.ArSefie.ARSelfieFragment"
+        android:label="ARSelfieFragment" >
+        <action
+            android:id="@+id/action_ARSelfieFragment2_to_ARSelfieFragmentHome"
+            app:destination="@id/ARSelfieFragmentHome" />
+    </fragment>
+    <fragment
+        android:id="@+id/ARFloorFragment"
+        android:name="com.mrspd.letschat.fragments.ArSefie.ARFloorFragment"
+        android:label="ARFloorFragment" >
+        <action
+            android:id="@+id/action_ARFloorFragment_to_ARSelfieFragmentHome"
+            app:destination="@id/ARSelfieFragmentHome" />
     </fragment>
 </navigation>
