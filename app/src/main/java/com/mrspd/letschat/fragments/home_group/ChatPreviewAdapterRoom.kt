@@ -48,7 +48,7 @@ class ChatPreviewAdapterRoom(private val clickListener: ClickListener) :
 
             binding.groupName = chatParticipant
             binding.clickListener = clickListener
-            //if query text isn't empty set the selected text with sky blue+bold
+            //if query text isn't empty_box set the selected text with sky blue+bold
             val groupname = chatParticipant.group_name
             if (mQuery.isEmpty()) {
                 binding.nameTextView.text = groupname

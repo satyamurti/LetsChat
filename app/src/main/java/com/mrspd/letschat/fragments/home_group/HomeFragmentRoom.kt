@@ -100,9 +100,6 @@ class HomeFragmentRoom : Fragment() {
             prefsEditor.apply()
 
 
-//            //show notification badge if there is incoming requests
-//            receivedRequestsCount = loggedUser.receivedRequests?.size ?: 0
-//            setupBadge(receivedRequestsCount)
 
 
             //get user chat history

@@ -57,7 +57,7 @@ class ContactsAdapter(private val itemClickCallback: ItemClickCallback) :
             itemClickCallback: ItemClickCallback
         ) {
 
-            //if query text isn't empty set the selected text with sky blue+bold
+            //if query text isn't empty_box set the selected text with sky blue+bold
             if (mQuery.isEmpty()) {
                 binding.nameTextView.text = item.username
             } else {

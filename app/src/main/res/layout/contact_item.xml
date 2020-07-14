@@ -13,7 +13,7 @@
         android:layout_width="match_parent"
         app:cardCornerRadius="4dp"
         android:padding="4dp"
-        android:layout_height="match_parent">
+        android:layout_height="wrap_content">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/parentLayout"

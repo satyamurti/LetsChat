@@ -116,7 +116,7 @@ class SignupFragment : Fragment() {
         }
 
 
-        //check if email is empty or wrong format
+        //check if email is empty_box or wrong format
         if (!binding.email.editText!!.text.isEmpty()) {
             val matcher: Matcher = pattern.matcher(binding.email.editText!!.text)
             if (!matcher.matches()) {
@@ -124,7 +124,7 @@ class SignupFragment : Fragment() {
                 return
             }
         } else if (binding.email.editText!!.text.isEmpty()) {
-            binding.email.error = "Email field can't be empty."
+            binding.email.error = "Email field can't be empty_box."
             return
         }
 

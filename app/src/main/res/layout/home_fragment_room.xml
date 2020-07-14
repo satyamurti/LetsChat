@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
 
     <data>
 
@@ -21,7 +21,16 @@
 
             <!--add view to show if user have incoming [number] requests and on show click show this recycler
             add header to both recyclers-->
-
+            <ImageView
+                android:id="@+id/imageView4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:alpha="0.8"
+                android:src="@drawable/bg2"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/recycler"
@@ -33,22 +42,20 @@
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.0"
-                tools:listitem="@layout/item_chat_one_to_one" />
-
-<!--            <com.google.android.material.floatingactionbutton.FloatingActionButton-->
-<!--                android:id="@+id/start_chat_fab"-->
-<!--                android:layout_width="wrap_content"-->
-<!--                android:layout_height="wrap_content"-->
-<!--                android:layout_gravity="end|bottom"-->
-<!--                android:layout_marginEnd="16dp"-->
-<!--                android:layout_marginBottom="64dp"-->
-<!--                android:background="@color/white"-->
-<!--                android:backgroundTint="@color/white"-->
-<!--                android:src="@drawable/chaticon"-->
-<!--                app:backgroundTint="#FFFFFF"-->
-<!--                app:layout_constraintBottom_toBottomOf="parent"-->
-<!--                app:layout_constraintEnd_toEndOf="parent" />-->
+                app:layout_constraintVertical_bias="0.0" />
+            <!--            <com.google.android.material.floatingactionbutton.FloatingActionButton-->
+            <!--                android:id="@+id/start_chat_fab"-->
+            <!--                android:layout_width="wrap_content"-->
+            <!--                android:layout_height="wrap_content"-->
+            <!--                android:layout_gravity="end|bottom"-->
+            <!--                android:layout_marginEnd="16dp"-->
+            <!--                android:layout_marginBottom="64dp"-->
+            <!--                android:background="@color/white"-->
+            <!--                android:backgroundTint="@color/white"-->
+            <!--                android:src="@drawable/chaticon"-->
+            <!--                app:backgroundTint="#FFFFFF"-->
+            <!--                app:layout_constraintBottom_toBottomOf="parent"-->
+            <!--                app:layout_constraintEnd_toEndOf="parent" />-->
 
             <ImageView
                 android:id="@+id/loadingChatImageView"
@@ -66,9 +73,9 @@
 
 
         <androidx.constraintlayout.widget.ConstraintLayout
-            android:layout_height="match_parent"
             android:id="@+id/no_chat_layout"
             android:layout_width="match_parent"
+            android:layout_height="match_parent"
             android:visibility="gone">
 
             <com.airbnb.lottie.LottieAnimationView
@@ -86,11 +93,11 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
+                android:layout_marginStart="16dp"
+                android:layout_marginEnd="16dp"
                 android:gravity="center"
                 android:text="no_chat_history_yet_click_chat_button_to_start_chatting"
                 android:textSize="20sp"
-                android:layout_marginStart="16dp"
-                android:layout_marginEnd="16dp"
                 android:textStyle="bold"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -98,7 +105,6 @@
 
 
         </androidx.constraintlayout.widget.ConstraintLayout>
-
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

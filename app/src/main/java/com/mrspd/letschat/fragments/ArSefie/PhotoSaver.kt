@@ -71,6 +71,8 @@ class PhotoSaver(
     }
 
     fun takePhoto(arSceneView: ArSceneView) {
+        Toast.makeText(activity, "Taking photo.....", Toast.LENGTH_LONG).show()
+
         val bmp = Bitmap.createBitmap(arSceneView.width, arSceneView.height, Bitmap.Config.ARGB_8888)
         val handlerThread = HandlerThread("PixelCopyThread")
         handlerThread.start()

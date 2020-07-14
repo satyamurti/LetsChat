@@ -273,11 +273,11 @@ class RoomChatFragment : Fragment() {
     private fun handleRecord() {
 
 
-        //change fab icon depending on is text message empty or not
+        //change fab icon depending on is text message empty_box or not
         binding.messageEditText.addTextChangedListener(object : TextWatcher {
             override fun afterTextChanged(s: Editable?) {
                 if (s.isNullOrEmpty()) {
-                    //empty text message
+                    //empty_box text message
                     binding.recordFab.setImageResource(R.drawable.mic)
                     isRecord = true
                 } else {

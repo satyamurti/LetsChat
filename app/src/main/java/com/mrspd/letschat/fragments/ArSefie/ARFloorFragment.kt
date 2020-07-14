@@ -40,7 +40,7 @@ private const val DOUBLE_TAP_TOLERANCE_MS = 1000L
 class ARFloorFragment : Fragment() {
     private lateinit var binding: ArfloorFragmentBinding
 
-    lateinit var arFragment: ArFragment
+    private lateinit var arFragment: ArFragment
 
     private val models = mutableListOf(
         Model(R.drawable.chair, "Chair", R.raw.chair),
@@ -49,9 +49,9 @@ class ARFloorFragment : Fragment() {
         Model(R.drawable.table, "Table", R.raw.table)
     )
 
-    lateinit var selectedModel: Model
+    private lateinit var selectedModel: Model
 
-    val viewNodes = mutableListOf<Node>()
+    private val viewNodes = mutableListOf<Node>()
 
     private lateinit var photoSaver: PhotoSaver
     private lateinit var videoRecorder: VideoRecorder

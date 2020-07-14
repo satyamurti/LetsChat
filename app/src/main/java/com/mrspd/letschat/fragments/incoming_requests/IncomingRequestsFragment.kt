@@ -53,7 +53,7 @@ class IncomingRequestsFragment : Fragment() {
         val json: String? = mPrefs.getString(LOGGED_USER, null)
         val loggedUser: User = gson.fromJson(json, User::class.java)
 
-        //get friend requests if receivedRequest isn't empty
+        //get friend requests if receivedRequest isn't empty_box
         val receivedRequest = loggedUser.receivedRequests
         if (!receivedRequest.isNullOrEmpty()) {
             viewModel.downloadRequests(receivedRequest).observe(viewLifecycleOwner, Observer { requestersList ->
@@ -112,7 +112,7 @@ class IncomingRequestsFragment : Fragment() {
                         sendersList?.removeAt(position)
                         adapter.setDataSource(sendersList)
                         adapter.notifyItemRemoved(position)
-                        //if no requests left (after user accept or delete)show the empty layout
+                        //if no requests left (after user accept or delete)show the empty_box layout
                         if (sendersList?.size == 0) {
                             binding.noIncomingRequestsLayout.visibility = View.VISIBLE
                         }

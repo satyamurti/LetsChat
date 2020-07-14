@@ -11,6 +11,7 @@ import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
+import androidx.navigation.fragment.findNavController
 import com.mrspd.letschat.R
 import com.mrspd.letschat.databinding.CreategroupFragmentBinding
 import com.mrspd.letschat.fragments.groupchat.gson
@@ -105,7 +106,7 @@ class CreateGroupFragment : Fragment() {
         }
 
 
-        //check if email is empty or wrong format
+        //check if email is empty_box or wrong format
         if (binding.description.editText!!.text.isEmpty()) {
             binding.description.error = "Please Enter Group Description."
             return
@@ -114,7 +115,12 @@ class CreateGroupFragment : Fragment() {
 
 
         //email and pass are matching requirements now we can register to firebase auth
+        viewModel.createdGroupFlag.observe(viewLifecycleOwner, Observer { flag ->
 
+            if (flag){
+                this.findNavController().popBackStack()
+            }
+        })
 
         //get user data
         viewModel.loggedUserMutableLiveData.observe(viewLifecycleOwner, Observer { loggedUser ->
@@ -135,6 +141,7 @@ class CreateGroupFragment : Fragment() {
                     loggedUser,
                     groupName
                 )
+
             } else
                 d("gghh", "failed")
         })
@@ -156,7 +163,7 @@ class CreateGroupFragment : Fragment() {
 //        }
 //
 //
-//        //check if email is empty or wrong format
+//        //check if email is empty_box or wrong format
 //        if (!binding.description.editText!!.text.isEmpty()) {
 //            binding.description.error = "Please Enter Group Description."
 //            return

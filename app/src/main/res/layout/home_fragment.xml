@@ -13,8 +13,19 @@
         android:background="@color/background"
         tools:context=".ui.home.HomeFragment">
 
+        <ImageView
+            android:id="@+id/imageView4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:alpha="0.8"
+            android:src="@drawable/bg1"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
         <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/constraintLayout2"
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
@@ -33,6 +44,7 @@
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
+                android:background="@android:color/transparent"
                 app:layout_constraintVertical_bias="0.0"
                 tools:listitem="@layout/item_chat_one_to_one" />
 
@@ -66,9 +78,9 @@
 
 
         <androidx.constraintlayout.widget.ConstraintLayout
-            android:layout_height="match_parent"
             android:id="@+id/no_chat_layout"
             android:layout_width="match_parent"
+            android:layout_height="match_parent"
             android:visibility="gone">
 
             <com.airbnb.lottie.LottieAnimationView
@@ -83,14 +95,15 @@
 
 
             <TextView
+                android:id="@+id/textView12"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
+                android:layout_marginStart="16dp"
+                android:layout_marginEnd="16dp"
                 android:gravity="center"
                 android:text="@string/no_one_to_chat_with_yet_add_more_friend_to_get_going"
                 android:textSize="20sp"
-                android:layout_marginStart="16dp"
-                android:layout_marginEnd="16dp"
                 android:textStyle="bold"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -98,7 +111,6 @@
 
 
         </androidx.constraintlayout.widget.ConstraintLayout>
-
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

@@ -48,7 +48,7 @@ class ChatPreviewAdapter(private val clickListener: ClickListener) :
 
             binding.chatParticipant = chatParticipant
             binding.clickListener = clickListener
-            //if query text isn't empty set the selected text with sky blue+bold
+            //if query text isn't empty_box set the selected text with sky blue+bold
             val username = chatParticipant.particpant?.username
             if (mQuery.isEmpty()) {
                 binding.nameTextView.text = username

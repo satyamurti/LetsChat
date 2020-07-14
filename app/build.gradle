@@ -10,13 +10,13 @@ apply plugin: 'com.google.gms.google-services'
 apply plugin: 'com.google.ar.sceneform.plugin'
 
 
-sceneform.asset (
+sceneform.asset(
         'sampledata/models/fox_face.fbx',
         'sampledata/models/fox_face_material.mat',
         'sampledata/models/fox_face.sfa',
         'src/main/res/raw/fox_face'
 )
-sceneform.asset (
+sceneform.asset(
         'sampledata/models/mask.blend',
         'sampledata/models/fox_face_material.mat',
         'sampledata/models/fox_face.sfa',
@@ -32,7 +32,7 @@ android {
         }
     }
 
-    buildFeatures{
+    buildFeatures {
         dataBinding = true
     }
     compileOptions {
@@ -80,6 +80,7 @@ dependencies {
     implementation 'androidx.annotation:annotation:1.1.0'
     implementation 'com.google.firebase:firebase-firestore:21.4.3'
     implementation 'com.google.firebase:firebase-storage:19.1.1'
+    implementation 'com.google.firebase:firebase-database:19.3.1'
     testImplementation 'junit:junit:4.13'
     androidTestImplementation 'androidx.test.ext:junit:1.1.1'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'

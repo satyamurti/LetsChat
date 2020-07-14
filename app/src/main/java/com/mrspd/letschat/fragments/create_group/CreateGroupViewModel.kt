@@ -18,6 +18,7 @@ class CreateGroupViewModel : ViewModel() {
     val navigateToHomeMutableLiveData = MutableLiveData<Boolean?>()
     val loadingState = MutableLiveData<LoadState>()
     val loggedUserMutableLiveData = MutableLiveData<User>()
+    val createdGroupFlag = MutableLiveData<Boolean>()
     private val groupCollectionReference = FirestoreUtil.firestoreInstance.collection("messages")
     private var userDocRef: DocumentReference? = AuthUtil.getAuthId().let {
         FirestoreUtil.firestoreInstance.collection("users").document(it)
@@ -53,7 +54,9 @@ class CreateGroupViewModel : ViewModel() {
         )
             ?.addOnSuccessListener {
                 // bioLoadState.value = LoadState.SUCCESS
+                createdGroupFlag.value = true
                 d("gghh", "added group in user succesfully")
+
             }
             ?.addOnFailureListener {
                 // bioLoadState.value = LoadState.FAILURE

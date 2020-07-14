@@ -48,7 +48,7 @@ class UserAdapter(private val clickListener: UserClickListener) :
 
             val userName: String = item.username.toString()
 
-            //if query text isn't empty set the selected text with sky blue+bold
+            //if query text isn't empty_box set the selected text with sky blue+bold
             if (mQuery.isEmpty()) {
                 binding.usernameTextView.text = userName
             } else {
