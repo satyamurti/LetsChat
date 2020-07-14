@@ -1,22 +1,18 @@
 # LetsChat
 ## 🇮🇳 Open source Indian Chat application with new cool concepts.
-#### As in this digital age, Children are getting diverted to entertainment thing's such as tv , mobile phones etc. Rather than studying they are chatting and sharing jokes , memes on Instagram, WhatsApp,etc. By this they're not only wasting their precious time. But also wasting their Focus from education. And they realise this when they get poor grades after exams. 
-### Well, Hello I am Satyamurti and I am also student and due to that I know how much less time we spend on studies as compared to using our mobile phones. As we all know Covid19 pandamic is changing way of education making everything online as soon as possible. Today, I am introducing you my new app "Let's Chat" this will change the game totally. This app will provide access freely to all user's for all it's features. Through this app students can message eachother , study together and hence also can take some breaks together :) . But how is this possible ? I am providing these major features
 
+As we all know, the Covid19 pandemic changes the way of education, making everything online as soon as possible. Nowadays, chat apps are evolving. Today, I am introducing you to my new app, "Let's Chat" this will change the game giving the students a platform to interact and collaborate. This app will provide access free to all users for all its features. Through this app, students can message each other, study together, and learn a new way to share notes and stuff. But how is this possible? I am providing these significant features.
 
-- 1  " Chat Messenging " - Well this feature allows WhatsApp like Messenging where users can create groups, can have private chats to interact with eachother asking doubts by sending images,videos ,audios files,etc.( this will also help students to take breaks )
+### Chat Messenging 
+- this feature allows WhatsApp like Messenging where users can create groups and have private chats to interact with each other, asking doubts by sending images, videos, and audio files, etc.( this will also help students to take breaks )
+### Group Meetings
+- Group Meetings allows users to interact with each other and share files and documents while interacting virtually. Here teachers can conduct doubt sessions, Viva, online meetings smoothly.
+### Go Live
+ - This will help all the schools and colleges to interact with students and take live online lectures. In this, they can share direct assignments, files, documents, pdf, etc., making the conversation more interactive.
+### Library Section 
+ - This holds tons of online pdf books. Read, Gain a ton of knowledge. Teachers can create personal libraries where students can access all materials with a secret key provided by teachers.
+### AR Camera
+- Augmented Reality is changing the way of living. This feature will help students by providing a live simulation of educational concepts. Students can also send beautiful filters applied on their face :) to each other (This will increase the quality of interaction and make people feel interactive)
 
-- 2. "Group Meetings" - Group Meetings allows users to not only interact with eachother but also they can share files, documents while interacting virtually.
-Here teachers can conduct doubt sessions, Viva, online meetings smoothly.
-
-- 3. "Go Live" - This will help all the schools and colleges to interact with students and take live online lectures. In this they can share direct assignments files, document, pdfs etc. This makes the conversation more interactive. 
-
-- 4. "Library Section" - This holds tons of online pdf books. Read, Gain ton of knowledge.Teacher can create personal libraries where students can access all materials with secret key provided by teachers .
-
-
-- 5. "AR Camera" - Augmented Reality is changing way of living . This feature will help students by providing live simulation of educational concepts  and also students can send beautiful filters applied on there face :) to each other (This will increase quality of interaction and will make people feel interactive)
-
-### This will not only help all the students to interact live while studying but also in corporate sector for meetings etc. My goal is to provide the user an overall access in a single packed app, Rather than installing different-different apps for various purposes. And getting lost while scrolling in Instagram ,etc. Here User can manage both Social and Education more efficiently. So that's it this is my final delta project .
-
-
-#### Thank you 😊. Have a Great Day !!
+This app will help all the students interact live while studying and for people in the corporate sector for meetings, etc. My goal is to provide the user with overall access in a single packed app Rather than installing different-different apps for various purposes. Without getting lost while scrolling on Instagram, etc. here, users can manage both Social and Education more efficiently. So that's it. This is my final delta project.
+Thank you 😊. Have a Great Day.
