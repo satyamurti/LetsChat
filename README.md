@@ -1,5 +1,5 @@
 # LetsChat
-## 🇮🇳 Open source Indian Chat application with new cool concepts.
+## 🇮🇳 Open source Indian Chat app with new cool concepts.
 
 As we all know, the Covid19 pandemic changes the way of education, making everything online as soon as possible. Nowadays, chat apps are evolving. Today, I am introducing you to my new app, "Let's Chat" this will change the game giving the students a platform to interact and collaborate. This app will provide access free to all users for all its features. Through this app, students can message each other, study together, and learn a new way to share notes and stuff. But how is this possible? I am providing these significant features.
 
