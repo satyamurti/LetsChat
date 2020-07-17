@@ -4,6 +4,9 @@
 
 # LetsChat
   **An opensource Indian chat app** 🇮🇳 with new cool concepts.
+  
+  
+[![forthebadge](https://forthebadge.com/images/badges/built-with-love.svg)](https://satyamurti.github.io)
 
 
 ### 💡 Introduction
