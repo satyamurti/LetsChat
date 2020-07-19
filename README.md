@@ -22,7 +22,7 @@
   <img src="walktroughbanner.jpg" />
 </p>
 
-As we all know, the Covid19 pandemic changes the way of education, making everything online as soon as possible. Nowadays, chat apps are evolving. Today, I am introducing you to my new app, "Let's Chat" this will change the game giving the students a platform to interact and collaborate. This app will provide access free to all users for all its features. Through this app, students can message each other, study together, and learn a new way to share notes and stuff. But how is this possible? I am providing these significant features.
+As we all know, the Covid19 pandemic changes the way of education, making everything online as soon as possible. Nowadays, chat apps are evolving. Today, I am introducing you to my new app, "Let's Chat" this will totally change the game by giving students a platform to interact and collaborate. This app will provide access free to all users for all its features. Through this app, students can message each other, study together, and learn a new way to share notes and stuff. But how is this possible? I am providing these significant features.
 
 #### Chat Messenging 
 - This feature allows WhatsApp like Messenging where users can create groups and have private chats to interact with each other, asking doubts by sending images, videos, and audio files, etc.( this will also help students to take breaks )
