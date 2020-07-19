@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="app/src/main/ic_launcher-playstore.png" height="100"/>
+  <img src="ss/10.png"/>
 </p>
 
 # LetsChat
