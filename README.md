@@ -98,7 +98,10 @@ Here's a list of features that I have planned to include overtime.
 * [Glide](https://github.com/bumptech/glide) - Load and cache images by URL.
 * [Retrofit 2](https://github.com/square/retrofit) - Handle REST api communication.
 
+### Architecture
+This app uses [***MVVM (Model View View-Model)***](https://developer.android.com/jetpack/docs/guide#recommended-app-arch) architecture.
 
+![](https://developer.android.com/topic/libraries/architecture/images/final-architecture.png)
 ### Contribute
 Awesome! If you would like to contribute with above features or submit a bugfix, you're always welcome !
 See [Contributing Guidelines](CONTRIBUTING.md). 
