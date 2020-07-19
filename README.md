@@ -3,7 +3,7 @@
 </p>
 
 # LetsChat
-[![GitHub license](https://img.shields.io/github/license/satyamurti/LetsChat)](LICENSE.txt)
+[![GitHub license](https://img.shields.io/github/license/satyamurti/LetsChat)](LICENSE)
 [![ktlint](https://img.shields.io/github/issues/satyamurti/LetsChat)](https://github.com/satyamurti/LetsChat/issues)
 ![ktlint](https://img.shields.io/badge/code%20style-%E2%9D%A4-FF4081.svg)
 ![Stars](https://img.shields.io/github/stars/satyamurti/LetsChat?style=social)
