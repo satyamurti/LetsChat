@@ -47,7 +47,7 @@ Thank you 😊. Have a Great Day.
 | ![Imgur](ss/4.jpg) | ![Imgur](ss/5.jpg) | ![Imgur](ss/6.jpg) |
 | ![Imgur](ss/7.jpg) | ![Imgur](ss/8.jpg) | ![Imgur](ss/9.jpg) |
 
-### Features
+### 📌 Features
 - [x] Authentication using Firebase Auth
 - [x] One to One Chats
 - [x] Group Chats
@@ -61,7 +61,7 @@ Thank you 😊. Have a Great Day.
 - [x] Search People
 - [x] Online/Last Active Status
 - [x] Push Notifications
-### Future Plans
+### ⚙️ Future Plans
 Here's a list of features that I have planned to include overtime.
 - [ ] Custom Stickers
 - [ ] Video and Audio Calls
@@ -102,11 +102,11 @@ Here's a list of features that I have planned to include overtime.
 This app uses [***MVVM (Model View View-Model)***](https://developer.android.com/jetpack/docs/guide#recommended-app-arch) architecture.
 
 ![](https://developer.android.com/topic/libraries/architecture/images/final-architecture.png)
-### Contribute
+### 🤝 Contribute
 Awesome! If you would like to contribute with above features or submit a bugfix, you're always welcome !
 See [Contributing Guidelines](CONTRIBUTING.md). 
 
-### Getting Started
+### ⚡ Getting Started
 * Clone or download repository as a zip file.
 * Open project in Android Studio.
 * Create Firebase project.
@@ -114,11 +114,11 @@ See [Contributing Guidelines](CONTRIBUTING.md).
 * In Firebase console enable all Firebase services listed in section Features.
 * Finally run the app `SHIFT+F10`.
 
-### Contact
+### ✉️ Contact
 If you need any help, you can connect with me.
 
 Visit:- [satyamurti.github.io](https://satyamurti.github.io)
-### License
+### 📃 License
 ```
 MIT License
 
