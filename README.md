@@ -66,7 +66,7 @@ Here's a list of features that I have planned to include overtime.
 - [ ] Custom Stickers
 - [ ] Video and Audio Calls
 - [ ] Live Streaming
-- [ ] Library Section
+- [ ] Library Section (Similar to Google Classroom)
 - [ ] Phone Number Authentication
 - [ ] GIF Messages
 - [ ] Location Messages
